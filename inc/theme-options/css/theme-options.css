@@ -1,0 +1,13 @@
+.meta-box-right {
+    display: block;
+    width: 250px;
+    margin-right: -500px;
+    position: fixed;
+    right: 50%;
+    top: 15%;
+    line-height: 23px;
+    padding: 10px;
+    list-style: square inside none;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
