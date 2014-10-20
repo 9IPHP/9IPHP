@@ -1086,7 +1086,7 @@ function comment_mail_notify($comment_id) {
     if (($parent_id != '') && ($spam_confirmed != 'spam')) {
         $wp_email = 'no-reply@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME'])); //e-mail 發出點, no-reply 可改為可用的 e-mail.
         $to = trim(get_comment($parent_id)->comment_author_email);
-        $subject = '你在 [ Specs\' Blog ] 的留言有了新回复';
+        $subject = '你在 ' . get_option('blogname') .' 的留言有了新回复';
 		$message = '
 			<div style="background: url(http://specs.qiniudn.com/email-bg.jpg);width: 100%;padding: 50px 0;">
 				<div style="background: #FFF;width: 750px;margin: 0 auto;">
@@ -1138,7 +1138,7 @@ function specs_comment_approved($comment) {
         $wp_email = 'no-reply@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME'])); //e-mail 發出點, no-reply 可改為可用的 e-mail.
         $to = trim($comment->comment_author_email);
         $post_link = get_permalink($comment->comment_post_ID);
-        $subject = '你在 [ Specs\' Blog ] 的留言已通过审核';
+        $subject = '你在 ' . get_option('blogname') .' 的留言已通过审核';
 		$message = '
 			<div style="background: url(http://9iphp.com/wp-content/themes/9iphp/images/bg.jpg);width: 100%;padding: 50px 0;">
 				<div style="background: #FFF;width: 750px;margin: 0 auto;">
