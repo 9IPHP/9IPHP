@@ -33,7 +33,14 @@
 
 	</header>
 	<div class="entry-summary">
-		<?php echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 300,"……"); ?>
+		<?php 
+			$excerpt = get_the_excerpt(); 
+			if(!$excerpt){
+				echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 300,"……"); 
+			}else{
+				echo $excerpt;
+			}
+		?>
 	</div>
 	<footer class="entry-footer clearfix visible-lg visible-md visible-sm">
 		<div class="pull-left footer-tag">
