@@ -17,7 +17,13 @@
     function description(){
         if( is_home() || is_front_page() ){ echo of_get_option('site_description'); }
         elseif( is_category() ){ $description = strip_tags(category_description());echo trim($description);}
-        elseif( is_single() ){ echo get_the_excerpt(); }
+        elseif( is_single() ){ 
+		if(get_the_excerpt()){
+			echo get_the_excerpt();
+		}else{
+			global $post; echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 300,"……"); 
+		}
+	}
         elseif( is_search() ){ echo '“';the_search_query();echo '”为您找到结果 ';global $wp_query;echo $wp_query->found_posts;echo ' 个'; }
         elseif( is_tag() ){  $description = strip_tags(tag_description());echo trim($description); }
         else{ $description = strip_tags(term_description());echo trim($description); }
