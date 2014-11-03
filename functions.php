@@ -1235,18 +1235,27 @@ if(!function_exists('cat_count_span')){
 	}
 }
 add_filter('wp_list_categories', 'cat_count_span');
-function bluth_custom_css() {
+function _9iphp_custom_css() {
 
 	$css_options = array(
 		'background_color' 					=> of_get_option('background_color'),
 		);
 
-if(!empty($css_options)){ ?>
-<style type="text/css">
+	if(!empty($css_options)){ ?>
+	<style type="text/css">
 	<?php
 		echo (!empty($css_options['background_color'])) ? 'body{ background: '.$css_options['background_color']. '; } ' : '';
 	?>
-</style>
+	</style>
 <?php }
 }
-add_action( 'wp_head', 'bluth_custom_css', 100 );
+add_action( 'wp_head', '_9iphp_custom_css', 100 );
+//更改摘要长度及后缀
+function _9iphp_excerpt_length($length) {
+    return 200;
+}
+add_filter('excerpt_length', '_9iphp_excerpt_length');
+function _9iphp_excerpt_more($more) {
+    return '......';
+}
+add_filter('excerpt_more', '_9iphp_excerpt_more');
