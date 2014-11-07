@@ -960,3 +960,9 @@ footer#body-footer a:hover{
 	height: auto;
 	margin: 10px;
 }
+/*文章缩略图*/
+.entry-content img.thumb{
+	margin-right: 10px;
+	border: 1px solid #ccc;
+	padding: 3px;
+}
