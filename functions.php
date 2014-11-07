@@ -1259,3 +1259,13 @@ function _9iphp_excerpt_more($more) {
     return '......';
 }
 add_filter('excerpt_more', '_9iphp_excerpt_more');
+
+function _9iphp_post_thumbnail( $width = 255,$height = 130 ){
+    global $post;
+    $content = $post->post_content;
+    preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
+    $n = count($strResult[1]);
+    if($n > 0){
+        return '<img class="thumb pull-left" src="'.get_bloginfo('template_directory').'/images/lazy_loading.gif" data-original="'.get_bloginfo("template_url").'/timthumb.php?w='.$width.'&amp;h='.$height.'&amp;src='.$strResult[1][0].'" title="'.get_the_title().'" alt="'.get_the_title().'"/>';
+    }
+}
