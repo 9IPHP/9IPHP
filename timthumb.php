@@ -133,7 +133,7 @@ if(! isset($ALLOWED_SITES)){
 		'imgur.com',
 		'imageshack.us',
 		'tinypic.com',
-		'img.fatesinger.com'
+		'qiniu.com'
 	);
 }
 // -------------------------------------------------------------
