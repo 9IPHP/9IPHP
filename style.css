@@ -963,6 +963,6 @@ footer#body-footer a:hover{
 /*文章缩略图*/
 .entry-content img.thumb{
 	margin-right: 10px;
-	border: 1px solid #ccc;
+	border: 1px solid #e1e1e1;
 	padding: 3px;
 }
