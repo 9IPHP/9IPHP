@@ -33,7 +33,10 @@
 
 	</header>
 	<div class="entry-summary">
-		<?php 
+		<?php
+			if (!has_post_thumbnail()) {
+				echo '<a href="'.get_the_permalink().'">' . _9iphp_post_thumbnail(220, 120) . '</a>';
+			}
 			the_excerpt(); 
 		?>
 	</div>
