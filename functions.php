@@ -1269,3 +1269,9 @@ function _9iphp_post_thumbnail( $width = 255,$height = 130 ){
         return '<img class="thumb pull-left" src="'.get_bloginfo('template_directory').'/images/lazy_loading.gif" data-original="'.get_bloginfo("template_url").'/timthumb.php?w='.$width.'&amp;h='.$height.'&amp;src='.$strResult[1][0].'" title="'.get_the_title().'" alt="'.get_the_title().'"/>';
     }
 }
+//Gravatar头像替换
+function _9iphp_replace_avatar( $avatar ) {
+  $avatar = preg_replace( "/http:\/\/(www|\d).gravatar.com/","https://secure.gravatar.com",$avatar ); //或多说 http://gravatar.duoshuo.com
+  return $avatar;
+}
+add_filter( 'get_avatar', '_9iphp_replace_avatar' );
