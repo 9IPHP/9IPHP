@@ -21,7 +21,9 @@
 		if(get_the_excerpt()){
 			echo get_the_excerpt();
 		}else{
-			global $post; echo mb_strimwidth(trim(strip_tags(apply_filters('the_content', $post->post_content))), 0, 300,"……"); 
+			global $post;
+                        $description = trim( str_replace( array( "\r\n", "\r", "\n", "　", " "), " ", str_replace( "\"", "'", strip_tags( $post->post_content ) ) ) );
+                        echo mb_substr( $description, 0, 220, 'utf-8' );
 		}
 	}
         elseif( is_search() ){ echo '“';the_search_query();echo '”为您找到结果 ';global $wp_query;echo $wp_query->found_posts;echo ' 个'; }
