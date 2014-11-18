@@ -361,7 +361,7 @@ function specs_string_cut($string, $sublen, $start = 0, $code = 'UTF-8') {
  * @copyright 2014 all rights reserved
  *
  */
-function specs_latest_comments_list($list_number=3, $avatar_size=32, $cut_length=20) {
+function specs_latest_comments_list($list_number=5, $avatar_size=32, $cut_length=20) {
 	global $wpdb;
 	global $admin_email;
 	//print_r($admin_email);
@@ -370,7 +370,7 @@ function specs_latest_comments_list($list_number=3, $avatar_size=32, $cut_length
 	$comments = $wpdb->get_results($sql);
 
 	foreach ($comments as $comment) {
-	  $output .= "\n<a class=\"list-group-item\" href=\"" . get_comment_link($comment->comment_ID) . "\" title=\"发表在 " .$comment->post_title . "\">".get_avatar( $comment, $avatar_size )." " . convert_smilies(specs_string_cut(strip_tags($comment->com_excerpt), $cut_length))."&nbsp;</a></span></a>";
+	  $output .= "\n<a class=\"list-group-item\" href=\"" . get_the_permalink($comment->comment_post_ID) . "#comments\" title=\"发表在 " .$comment->post_title . "\">".get_avatar( $comment, $avatar_size )." " . convert_smilies(specs_string_cut(strip_tags($comment->com_excerpt), $cut_length))."&nbsp;</a></span></a>";
 	}
 
 	//$output = convert_smilies($output);
