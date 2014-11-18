@@ -1271,7 +1271,7 @@ function _9iphp_post_thumbnail( $width = 255,$height = 130 ){
 }
 //Gravatar头像替换
 function _9iphp_replace_avatar( $avatar ) {
-  $avatar = preg_replace( "/http:\/\/(www|\d).gravatar.com/","https://secure.gravatar.com",$avatar ); //或多说 http://gravatar.duoshuo.com
+  $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
   return $avatar;
 }
 add_filter( 'get_avatar', '_9iphp_replace_avatar' );
