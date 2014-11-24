@@ -1088,7 +1088,7 @@ function comment_mail_notify($comment_id) {
         $to = trim(get_comment($parent_id)->comment_author_email);
         $subject = '你在 ' . get_option('blogname') .' 的留言有了新回复';
 		$message = '
-			<div style="background: url(http://specs.qiniudn.com/email-bg.jpg);width: 100%;padding: 50px 0;">
+			<div style="background: #E1E1E1;width: 100%;padding: 50px 0;">
 				<div style="background: #FFF;width: 750px;margin: 0 auto;">
 					<div style="padding: 10px 60px;background: #50A5E6;color: #FFF;font-size: 24px; font-weight: bold;"><a href="' . get_option('home') . '" style="text-decoration: none;color: #FFF;">' . get_option('blogname') . '</a></div>
 					<h1 style="text-align: center;font-size: 26px;line-height: 50px;margin: 30px 60px;font-weight: bold;font-family: 宋体,微软雅黑,serif;">
@@ -1140,7 +1140,7 @@ function specs_comment_approved($comment) {
         $post_link = get_permalink($comment->comment_post_ID);
         $subject = '你在 ' . get_option('blogname') .' 的留言已通过审核';
 		$message = '
-			<div style="background: url(http://9iphp.com/wp-content/themes/9iphp/images/bg.jpg);width: 100%;padding: 50px 0;">
+			<div style="background: #E1E1E1;width: 100%;padding: 50px 0;">
 				<div style="background: #FFF;width: 750px;margin: 0 auto;">
 					<div style="padding: 10px 60px;background: #50A5E6;color: #FFF;font-size: 24px; font-weight: bold;"><a href="' . get_option('home') . '" style="text-decoration: none;color: #FFF;">' . get_option('blogname') . '</a></div>
 					<h1 style="text-align: center;font-size: 26px;line-height: 50px;margin: 30px 60px;font-weight: bold;font-family: 宋体,微软雅黑,serif;">
