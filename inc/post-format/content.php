@@ -35,7 +35,7 @@
 	<div class="entry-summary entry-content clearfix">
 		<?php
 			if (!has_post_thumbnail()) {
-				echo '<a href="'.get_the_permalink().'">' . _9iphp_post_thumbnail(220, 120) . '</a>';
+				echo '<a href="'.get_permalink().'">' . _9iphp_post_thumbnail(220, 120) . '</a>';
 			}
 			the_excerpt(); 
 		?>
