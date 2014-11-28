@@ -1,5 +1,0 @@
-$(function(){
-    $("#submit").click(function(){
-        
-    })
-})
