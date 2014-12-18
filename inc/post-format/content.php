@@ -34,7 +34,7 @@
 	</header>
 	<div class="entry-summary entry-content clearfix">
 		<?php
-			if (!has_post_thumbnail()) {
+			if (of_get_option('show_thumb') && !has_post_thumbnail()) {
 				echo '<a href="'.get_permalink().'">' . _9iphp_post_thumbnail(220, 120) . '</a>';
 			}
 			the_excerpt(); 

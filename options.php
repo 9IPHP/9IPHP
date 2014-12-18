@@ -54,8 +54,19 @@ function optionsframework_options() {
 		'std' => '',
 		'type' => 'textarea');
 	$options[] = array(
+		'name' => '文章缩略图',
+		'desc' => '列表页是否显示文章缩略图(由于SAE不能显示，建议关闭)',
+		'id' => 'show_thumb',
+		'std' => '1',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => array(
+			'1' => '是',
+			'0' => '否')
+	);
+	$options[] = array(
 		'name' => '站点副标题',
-		'desc' => '是否站点副标题',
+		'desc' => '是否显示站点副标题',
 		'id' => 'show_blogdescription',
 		'std' => '1',
 		'type' => 'select',
