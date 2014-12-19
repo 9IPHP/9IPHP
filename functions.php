@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 define( '_9IPHP_VERSION', 1.3 );
 //require_once(TEMPLATEPATH . '/inc/themeset.php');
@@ -9,6 +9,8 @@ require_once(TEMPLATEPATH . '/inc/theme-options.php');
 
 //特色图片支持
 add_theme_support( 'post-thumbnails' );
+/*  Add support for the multiple Post Formats  */
+add_theme_support( 'post-formats', array('status')); 
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 //注册菜单
 if(!function_exists('specs_register_nav_menu')){
@@ -1252,7 +1254,7 @@ function _9iphp_custom_css() {
 add_action( 'wp_head', '_9iphp_custom_css', 100 );
 //更改摘要长度及后缀
 function _9iphp_excerpt_length($length) {
-    return 200;
+    return 170;
 }
 add_filter('excerpt_length', '_9iphp_excerpt_length');
 function _9iphp_excerpt_more($more) {

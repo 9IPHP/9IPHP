@@ -222,3 +222,8 @@
 #optionsframework .section:after {
 	clear: both;
 }
+#optionsframework .section .heading {
+	padding: 10px 0px;
+	margin: 0 0 15px;
+	border-bottom: 1px solid #dfdfdf;
+}

@@ -34,10 +34,14 @@
 	</header>
 	<div class="entry-summary entry-content clearfix">
 		<?php
-			if (of_get_option('show_thumb') && !has_post_thumbnail()) {
+			if (of_get_option('show_thumb') && !has_post_thumbnail() && of_get_option('enable_excerpt')) {
 				echo '<a href="'.get_permalink().'">' . _9iphp_post_thumbnail(220, 120) . '</a>';
 			}
-			the_excerpt(); 
+			if(of_get_option('enable_excerpt')){
+				the_excerpt();
+			}else{
+				the_content(''); 
+			}
 		?>
 	</div>
 	<footer class="entry-footer clearfix visible-lg visible-md visible-sm">

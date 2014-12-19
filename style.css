@@ -968,3 +968,19 @@ footer#body-footer a:hover{
 	width: 220px;
 	height: 120px;
 }
+/*百度分享*/
+#share_box a{width:30px;height:30px;background:url("images/sharebg.png") no-repeat!important;padding: 0!important;-webkit-transition:0.3s;-moz-transition:0.3s;transition:0.3s;}
+#share_box .bds_tsina{background-position:0 0!important;}
+#share_box .bds_tsina:hover{background-position:0 -30px!important;}
+#share_box .bds_qzone{background-position:-29px 0!important;}
+#share_box .bds_qzone:hover{background-position:-29px -30px!important;}
+#share_box .bds_douban{background-position:-59px 0!important;}
+#share_box .bds_douban:hover{background-position:-59px  -30px!important;}
+#share_box .bds_renren{background-position:-90px  0!important;}
+#share_box .bds_renren:hover{background-position:-90px  -30px!important;}
+#share_box .bds_weixin{background-position:-120px  0!important;}
+#share_box .bds_weixin:hover{background-position:-120px -30px!important;}
+#share_box .bds_tqq{background-position:-149px 0!important;}
+#share_box .bds_tqq:hover{background-position:-149px -30px!important;}
+#share_box .bds_more{background-position:-179px 0!important;}
+#share_box .bds_more:hover{background-position:-179px -30px!important;}

@@ -81,44 +81,33 @@
 		</ul>
 		<!--上一篇下一篇-->
 		<!--分享-->
-		<ul class="share list-unstyled list-inline clearfix">
-			<li class="text-center hidden-xs"><strong>分享到 <i class="fa fa-share-alt"></i></strong></li>
-			<li class="text-center"><a href="javascript:;" id="share-weibo" title="分享到新浪微博"><i class="fa fa-weibo"></i></a></li>
-			<li class="text-center"><a href="javascript:;" id="share-tencent" title="分享到腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
-			<li class="text-center"><a href="javascript:;" id="share-qzone" title="分享到QQ空间"><i class="fa fa-qq"></i></a></li>
-			<li class="text-center"><a href="javascript:;" id="share-renren" title="分享到人人网"><i class="fa fa-renren"></i></a></li>
-			<li class="text-left">
-				<a class="text-center" href="javascript:;" id="share-weixin" title="分享到微信" data-toggle="modal" data-target="#myModal">
-					<i class="fa fa-wechat"></i>
-				</a>
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="myModalLabel">扫描二维码，分享到微信</h4>
-							</div>
-							<div class="modal-body text-center">
-								<p><img src="http://api.k780.com:88/?app=qr.get&data=<?php echo urlencode(get_permalink()); ?>&level=L&size=6"></p>
-								<p>打开微信，点击 “发现”<br/>使用 “扫一扫”，可分享到朋友圈</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<!--分享-->
-
-		<!--相关文章-->
-		<div class="related-posts">
-			<div class="related-title">
-				你可能也喜欢：
+		<?php
+			$share_btn_pos = of_get_option('share_btn_pos', false);
+			if ($share_btn_pos['single']) {
+		?>
+			<div class="bdsharebuttonbox share" id="share_box">
+				<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+				<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+				<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+				<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+				<a href="#" class="bds_more" data-cmd="more"></a>
 			</div>
-			<?php $specs_related = of_get_option("archives_related") ? of_get_option("archives_related") : 5;specs_relatedpost($specs_related);?>
-		</div>
+			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+		<?php } ?>
+		<!--分享-->
+		<!--相关文章-->
+		<?php
+			if(!of_get_option('disable_related_posts')){
+		?>
+			<div class="related-posts">
+				<div class="related-title">
+					你可能也喜欢：
+				</div>
+				<?php $specs_related = of_get_option("archives_related") ? of_get_option("archives_related") : 5;specs_relatedpost($specs_related);?>
+			</div>
+		<?php } ?>
 		<!--相关文章-->
 	</footer>
 	<?php comments_template( '', true ); ?>

@@ -53,7 +53,7 @@ function optionsframework_init() {
 	// Instantiate the media uploader class
 	$options_framework_media_uploader = new Options_Framework_Media_Uploader;
 	$options_framework_media_uploader->init();
-
+	wp_enqueue_style( 'optionsframework', OPTIONS_FRAMEWORK_DIRECTORY.'css/optionsframework.css' );
 }
 
 add_action( 'init', 'optionsframework_init', 20 );
