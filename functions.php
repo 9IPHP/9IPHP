@@ -1272,8 +1272,8 @@ function _9iphp_post_thumbnail( $width = 255,$height = 130 ){
     }
 }
 //Gravatar头像替换
-function _9iphp_replace_avatar( $avatar ) {
-  $avatar = preg_replace('/.*\/avatar\/(.*)\?s=([\d]+)&.*/','<img src="https://secure.gravatar.com/avatar/$1?s=$2" class="avatar avatar-$2" height="$2" width="$2">',$avatar);
+function _9iphp_replace_avatar($avatar) {
+  $avatar = str_replace(array("www.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com"), "secure.gravatar.com", $avatar);
   return $avatar;
 }
-add_filter( 'get_avatar', '_9iphp_replace_avatar' );
+add_filter( 'get_avatar', '_9iphp_replace_avatar', 10, 3 );
