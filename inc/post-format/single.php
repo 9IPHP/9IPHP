@@ -33,7 +33,7 @@
 			$ads_show = of_get_option('show_ads_page_top', false);
 			$ads = of_get_option('ads_page_top', false);
 			if($ads_show && $ads){
-				echo '<div class="pull-right ads_page_top">' . $ads . '</div>';
+				echo '<div class="ads_page_top">' . $ads . '</div>';
 			}
 		?>
 		<?php the_content(); ?>
@@ -52,9 +52,7 @@
 			$ads_show_pos = of_get_option('ads_show_pos', false);
 			$ads = of_get_option('ads_index_list', false);
 			if($ads_show_pos['single'] && $ads){
-				echo '<div class="ads_page_footer">';
-				echo (strpos($ads, '<script') === false) ? '<script>'.$ads.'</script> | ' : $ads;
-				echo '</div>';
+				echo '<div class="ads_page_footer">' . $ads . '</div>';
 			}
 		?>
 		<!-- 文章版权信息 -->
