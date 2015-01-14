@@ -63,7 +63,7 @@ $(document).on("click", ".commentnav a",//评论翻页标签名
             um_post: id,
             um_page: page
         };
-        commentsHolder.html('<div id="JSloading" class="alert alert-warning">loading..</div>')
+        commentsHolder.html('<div id="JSloading" class="alert alert-warning"><i class="fa fa-spinner fa-spin"></i> loading..</div>')
         $.post(SPECS.um_ajaxurl, ajax_data,
         function(data) {
             commentsHolder.html(data);
