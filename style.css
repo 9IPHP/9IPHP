@@ -954,11 +954,14 @@ footer#body-footer a:hover{
 .ads_page_footer,.ads_index_list{
 	margin: 10px auto;
 	overflow: hidden;
+	text-align: center;
 }
 .ads_page_top{
 	width: auto;
 	height: auto;
-	margin: 10px;
+	margin: 10px auto;
+	overflow: hidden;
+	text-align: center;
 }
 /*文章缩略图*/
 .entry-content img.thumb{
