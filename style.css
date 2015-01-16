@@ -4,7 +4,7 @@ Theme Name: 9IPHP
 Theme URI: http://9iphp.com
 Author: Specs
 Author URI: http://9iphp.com/
-Description: Specs主题是一款基于BootStrap创建的相应式Wordpress主题。
+Description: 9IPHP主题是一款基于BootStrap创建的相应式Wordpress主题。
 Version: 1.2
 Tags: 响应式主题,手机主题,Bootstrap
 */
@@ -57,6 +57,10 @@ body, textarea, input, select, button {
 	/*font-size: 16px;*/
 	/*text-indent: 2em;*/
 	line-height: 2em;
+	margin: 15px 0;
+}
+.entry-summary p{
+    margin: 0;
 }
 .label{
 	border-radius: 0;
