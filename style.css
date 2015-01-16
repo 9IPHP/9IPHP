@@ -784,8 +784,10 @@ footer#body-footer a:hover{
 	list-style: none;
 	padding: 0;
 }
-#comments ul.children li.depth-2{
-	margin-left: 50px;
+@media screen and (min-width: 768px){
+	#comments ul.children li.depth-2{
+		margin-left: 50px;
+	}
 }
 .comments-title,#reply-title{
 	font-size: 16px;
