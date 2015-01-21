@@ -390,16 +390,18 @@ function specs_latest_comments_list($list_number=5, $avatar_size=32, $cut_length
  */
 
 function specs_set_post_views($postID) {
-    $count_key = 'post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    }else{
-      $count++;
-      update_post_meta($postID, $count_key, $count);
-    }
+	if (!current_user_can('level_10')) {
+	    $count_key = 'post_views_count';
+	    $count = get_post_meta($postID, $count_key, true);
+	    if($count==''){
+	        $count = 0;
+	        delete_post_meta($postID, $count_key);
+	        add_post_meta($postID, $count_key, '0');
+	    }else{
+	      $count++;
+	      update_post_meta($postID, $count_key, $count);
+	    }
+	}
 }
 function specs_get_post_views($postID){
     $count_key = 'post_views_count';
