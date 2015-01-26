@@ -343,7 +343,6 @@ blockquote{
 /*列表文章图片*/
 .entry-content img,.entry-summary img,.comment-content img,.widget img,.page-content img{
 	max-width:100%;
-	height:auto;
 }
 /*
 .entry-content img,.page-content img{
