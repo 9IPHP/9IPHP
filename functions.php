@@ -606,42 +606,6 @@ function most_comm_posts($days=30, $nums=5) { //$days参数限制时间值，单
 	echo $output;
 }
 /**
- * 9IPHP <Get post thumb> in the theme.
- *
- *
- * @version 1.0
- * @package Specs
- * @copyright 2014 all rights reserved
- *
- */
-function specs_get_post_thumb(){
-	global $post;
-	if ( has_post_thumbnail() ) {
-		echo get_the_post_thumbnail($post_id, 'full');
-	} else {
-		$cats=get_the_category();
-		foreach($cats as $cat){
-			$catsID[] = $cat->cat_ID;
-		}
-		$thumb = "http://img-specs.qiniudn.com/9iphp_thumb_";
-		if(is_array($catsID)){
-			if(array_search("47", $catsID) > -1){$thumb .="linux";}
-			elseif(array_search("32", $catsID) > -1){$thumb .="sql";}
-			elseif(array_search("30", $catsID) > -1){$thumb .="html5";}
-			elseif(array_search("16", $catsID) > -1){$thumb .="jquery";}
-			elseif(array_search("13", $catsID) > -1){$thumb .="dede";}
-			elseif(array_search("1", $catsID) > -1){$thumb .="wordpress";}
-			elseif(array_search("2", $catsID) > -1){$thumb .="php";}
-			else{ $thumb .= "smile";}
-		}else{
-			$thumb .= "smile";
-		}
-		$thumb .= ".jpg";
-
-		echo '<img src="'.$thumb.'"/>';
-	}
-}
-/**
  * 9IPHP <Get post title first letter> in the theme.
  * 拼音首字母
  *
