@@ -1,7 +1,7 @@
 <article class="well clearfix">
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) {?>
-			<a href="<?php the_permalink() ?>" class="entry-cover hidden-xs">
+			<a href="<?php the_permalink() ?>" class="entry-cover">
 			<?php echo get_the_post_thumbnail($post_id, 'full');?>
 			</a>
 		<?php }?>
