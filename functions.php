@@ -319,9 +319,12 @@ function past_date() {
 }
 add_filter('past_date', 'past_date');
 
-remove_action('pre_post_update','wp_save_post_revision');
 add_action('wp_print_scripts','disable_autosave');
 function disable_autosave(){  wp_deregister_script('autosave'); }
+add_filter( 'wp_revisions_to_keep', 'specs_wp_revisions_to_keep', 10, 2 );
+function specs_wp_revisions_to_keep( $num, $post ) {
+    return 0;
+}
 /**
  * 9IPHP <Cut the string> in the theme.
  * 字符串截取函数
