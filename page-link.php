@@ -33,7 +33,7 @@ $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
 					<div class="links">
 					  <!--开始ul-->
 					  <ul class="clearfix list-unstyled">
-						<?php $bookmarks = get_bookmarks('orderby=date&category_name=' . $linkcat->name);if ( !empty($bookmarks) ) {foreach ($bookmarks as $bookmark) {echo '<li class="col-sm-4"><a href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" ><img src="' . $bookmark->link_url . '/favicon.ico" onerror="javascript:this.src=\'wp-content/themes/9iphp/images/grey.gif\'" />' . $bookmark->link_name . '</a></li>';}} ?>
+						<?php $bookmarks = get_bookmarks('orderby=date&category_name=' . $linkcat->name);if ( !empty($bookmarks) ) {foreach ($bookmarks as $bookmark) {echo '<li class="col-sm-4"><a href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" ><img src="' . $bookmark->link_url . '/favicon.ico" onerror="javascript:this.src=\''.get_template_directory_uri().'/images/grey.gif\'" />' . $bookmark->link_name . '</a></li>';}} ?>
 					  </ul>
 					  <div class="clearfix"></div>
 					</div>
