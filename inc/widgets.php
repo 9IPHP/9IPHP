@@ -2,30 +2,64 @@
 //注册侧边栏小工具
 function specs_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Home Sidebar', 'twentytwelve' ),
+        'name' => __( 'Home Sidebar', '9iphp' ),
         'id' => 'sidebar_home',
-        'description' => __( '首页默认边栏,“9IPHP-文章”小工具需要放在最下面', 'twentytwelve' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs visible-lg visible-md">',
+        'description' => __( '首页默认边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
 
-	/*register_sidebar( array(
-        'name' => __( 'Main Sidebar', 'twentytwelve' ),
-        'id' => 'sidebar_main',
-        'description' => __( '分类页、搜索页、标签页默认边栏', 'twentytwelve' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs visible-lg visible-md">',
+    register_sidebar( array(
+        'name' => __( 'Single Page', '9iphp' ),
+        'id' => 'sidebar_single',
+        'description' => __( '文章及页面边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
-    ) );*/
+    ) );
 
+    // First footer widget area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Single Page', 'twentytwelve' ),
-        'id' => 'sidebar_single',
-        'description' => __( '文章及页面边栏,“9IPHP-文章”小工具需要放在最下面', 'twentytwelve' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs visible-lg visible-md">',
+        'name' => __( 'First Footer Widget Area', '9iphp' ),
+        'id' => 'first-footer-widget-area',
+        'description' => __( 'The first footer widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+ 
+    // Second Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Second Footer Widget Area', '9iphp' ),
+        'id' => 'second-footer-widget-area',
+        'description' => __( 'The second footer widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+ 
+    // Third Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Third Footer Widget Area', '9iphp' ),
+        'id' => 'third-footer-widget-area',
+        'description' => __( 'The third footer widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+ 
+    // Fourth Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Fourth Footer Widget Area', '9iphp' ),
+        'id' => 'fourth-footer-widget-area',
+        'description' => __( 'The fourth footer widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
@@ -111,7 +145,7 @@ class specs_widget_notice extends WP_Widget {
         $result = '';
         $content = (!empty($instance['content'])) ? $instance['content'] : '';
         $type = (!empty($instance['type'])) ? $instance['type'] : 'success';
-        $result .= '<div  class="widget widget-notice alert alert-'.$type.' fade in visible-lg visible-md">';
+        $result .= '<div  class="widget widget-notice alert alert-'.$type.' fade in">';
         $result .= '<button type="button" class="close" data-dismiss="alert">&times;</button>';
         $result .= $content;
         $result .= '</div>';
@@ -309,7 +343,7 @@ class specs_widget_posts extends WP_Widget{
         //echo $title;
         $number = (!empty($instance['number'])) ? intval($instance['number']) : 5;
         ?>
-        <div class="widget widget-posts visible-lg visible-md" id="float">
+        <div class="widget widget-posts">
             <ul id="myTab" class="nav nav-tabs nav-justified visible-lg">
                 <li class="active"><a href="#hot" data-toggle="tab"><h2><i class="fa fa-fire"></i> 热点文章</h2></a></li>
                 <li><a href="#newest" data-toggle="tab"><h2><i class="fa fa-refresh fa-spin"></i> 最新文章</h2></a></li>

@@ -319,6 +319,7 @@ function past_date() {
 }
 add_filter('past_date', 'past_date');
 
+
 add_action('wp_print_scripts','disable_autosave');
 function disable_autosave(){  wp_deregister_script('autosave'); }
 add_filter( 'wp_revisions_to_keep', 'specs_wp_revisions_to_keep', 10, 2 );

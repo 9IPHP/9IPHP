@@ -6,7 +6,7 @@ $layout = of_get_option('side_bar');
 $layout = (empty($layout)) ? 'right_side' : $layout;
 get_header();
 $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
-							   $wpdb->term_taxonomy T2 WHERE T1.term_id = T2.term_id
+    						   $wpdb->term_taxonomy T2 WHERE T1.term_id = T2.term_id
 							   AND T2.taxonomy = 'link_category'");
 ?>
 	<?php if($layout == 'left_side'){ ?>
