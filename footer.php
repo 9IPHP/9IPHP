@@ -7,12 +7,6 @@
      *
      * If none of the sidebars have widgets, then let's bail early.
      */
-    if (   ! is_active_sidebar( 'first-footer-widget-area'  )
-        && ! is_active_sidebar( 'second-footer-widget-area' )
-        && ! is_active_sidebar( 'third-footer-widget-area'  )
-        && ! is_active_sidebar( 'fourth-footer-widget-area' )
-    )
-        return;
     if (   is_active_sidebar( 'first-footer-widget-area'  )
         && is_active_sidebar( 'second-footer-widget-area' )
         && is_active_sidebar( 'third-footer-widget-area'  )
@@ -46,7 +40,7 @@
         && ! is_active_sidebar( 'second-footer-widget-area' )
     ) :
     ?>
-     <aside class="footer-widget row">
+    <aside class="footer-widget row">
         <div class="first col-md-12 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
     </aside>
     <?php endif;?>
