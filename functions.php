@@ -679,7 +679,8 @@ function specs_show_tags() {
 		$categories = get_terms( 'post_tag', array(
 			'orderby'    => 'count',
 			'hide_empty' => 1
-		 ) );
+		) );
+		$r = array();
 		foreach($categories as $v){
 			for($i = 65; $i <= 90; $i++){
 				if(specs_pinyin($v->name) == chr($i)){
