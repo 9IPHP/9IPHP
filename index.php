@@ -10,7 +10,7 @@ get_header(); ?>
             </div>
 		<![endif]-->
 		<?php if($layout == 'left_side'){ ?>
-		<aside id="side-bar" class="col-md-4 hidden-xs">
+		<aside id="side-bar" class="col-md-4 hidden-xs hidden-sm">
 				<?php dynamic_sidebar( 'sidebar_home'); ?>
 		</aside>
 		<?php } ?>
