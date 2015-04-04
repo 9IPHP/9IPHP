@@ -25,7 +25,7 @@ get_header(); ?>
 					<div class="row" id="comments_top_12">
 						<?php
 							$results = specs_comments_tj(12,3);
-							foreach($results as $v){
+							if(!empty($results)) foreach($results as $v){
 								//print_r($v);
 								echo "<a title='".$v[0]."' class='col-md-3' href='".$v[3]."' target='_blank'>" . get_avatar($v[2],40) . "</a>";
 							}
