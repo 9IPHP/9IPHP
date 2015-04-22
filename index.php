@@ -16,7 +16,7 @@ get_header(); ?>
 			</div>
 		</aside>
 		<?php } ?>
-        <section class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
+        <section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 			<!--首页幻灯片-->
 			<?php
 				if(is_home()){

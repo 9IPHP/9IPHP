@@ -10,7 +10,7 @@
 			</div>
 		</aside>
 	<?php } ?>
-	<section class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
+	<section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<?php specs_set_post_views(get_the_ID()); ?>
 		<?php get_template_part( 'inc/post-format/single', get_post_format() ); ?>
