@@ -4,8 +4,10 @@
 
 	get_header();
 	if($layout == 'left_side'){ ?>
-		<aside id="side-bar" class="col-md-4">
-			<?php dynamic_sidebar( 'sidebar_single'); ?>
+		<aside class="col-md-4 hidden-xs hidden-sm">
+			<div id="sidebar">
+				<?php dynamic_sidebar( 'sidebar_single'); ?>
+			</div>
 		</aside>
 	<?php } ?>
 	<section class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
@@ -14,13 +16,15 @@
 		<?php get_template_part( 'inc/post-format/single', get_post_format() ); ?>
 
 		<?php endwhile; endif;?>
-		
+
 
 	</section>
 	<!--侧边栏-->
 	<?php if($layout == 'right_side'){ ?>
-	<aside id="side-bar" class="col-md-4">
-			<?php dynamic_sidebar( 'sidebar_single'); ?>
-	</aside>
+		<aside class="col-md-4 hidden-xs hidden-sm">
+			<div id="sidebar">
+				<?php dynamic_sidebar( 'sidebar_single'); ?>
+			</div>
+		</aside>
 	<?php } ?>
 <?php get_footer(); ?>

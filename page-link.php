@@ -10,8 +10,10 @@ $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
 							   AND T2.taxonomy = 'link_category'");
 ?>
 	<?php if($layout == 'left_side'){ ?>
-		<aside id="side-bar" class="col-md-4">
+		<aside class="col-md-4 hidden-xs hidden-sm">
+			<div id="sidebar">
 				<?php dynamic_sidebar( 'sidebar_single'); ?>
+			</div>
 		</aside>
 	<?php } ?>
 	<section class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
@@ -51,8 +53,10 @@ $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
 	</section>
 	<!--侧边栏-->
 	<?php if($layout == 'right_side'){ ?>
-		<aside id="side-bar" class="col-md-4">
+		<aside class="col-md-4 hidden-xs hidden-sm">
+			<div id="sidebar">
 				<?php dynamic_sidebar( 'sidebar_single'); ?>
+			</div>
 		</aside>
 	<?php } ?>
 <!--底部-->

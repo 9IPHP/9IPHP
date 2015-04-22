@@ -45,7 +45,7 @@ Tags: 响应式主题,手机主题,Bootstrap
 }
 body {
     /*font-family: "Microsoft Yahei","Courier new";*/
-    
+
     background: #EEE url(images/bg.jpg) repeat scroll 0% 0%;
     color: #333;
     line-height: 1.5;
@@ -57,7 +57,7 @@ body, textarea, input, select, button {
 .entry-content p, .page-content p {
     /*font-size: 16px;*/
     /*text-indent: 2em;*/
-    
+
     line-height: 2em;
     margin: 15px 0;
 }
@@ -92,7 +92,7 @@ h3 {
 }
 a, .links li a {
     /*color: #fda100;*/
-    
+
     color: #080808;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -101,7 +101,7 @@ a, .links li a {
 a:hover, a:focus, .entry-meta a:hover, a.more-link, a.entry-cover:before, .entry-content a, .page-content a, .links li a:hover, #wp-calendar a, .pager a:hover {
     /*color: #a50606;*/
     /*color: #c0392b;*/
-    
+
     color: #ff4d3a;
     text-decoration: none;
     -webkit-transition: all .3s;
@@ -122,7 +122,7 @@ a:hover, a:focus, .entry-meta a:hover, a.more-link, a.entry-cover:before, .entry
 .panel-specs {
     border-bottom: 0;
     /*background: none;*/
-    
+
     border: 0;
 }
 .panel-specs > .panel-heading {
@@ -149,7 +149,7 @@ a:hover, a:focus, .entry-meta a:hover, a.more-link, a.entry-cover:before, .entry
 }
 .badge {
     /*background-color: #38353D;*/
-    
+
     background-color: #ff4d3a;
 }
 .navbar-default {
@@ -357,7 +357,7 @@ img.aligncenter {
 .entry-cover img {
     display: block;
     /*min-height:200px;*/
-    
+
     width: 100%;
     height: auto;
     border-radius: 3px 3px 0 0;
@@ -554,17 +554,17 @@ img.avatar {
 }
 .widget a:hover img.avatar, .page-content a:hover img.avatar {
     /*transform: rotate(360deg) scale(1.1);*/
-    
+
     transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     /* IE 9 */
-    
+
     -moz-transform: rotate(360deg);
     /* Firefox */
-    
+
     -webkit-transform: rotate(360deg);
     /* Safari and Chrome */
-    
+
     -o-transform: rotate(360deg);
     /* Opera */
 }
@@ -613,7 +613,7 @@ img.avatar {
 }
 #calendar_wrap .table caption {
     /*font-weight: bold;*/
-    
+
     font-size: 16px;
     padding: 10px 15px;
 }
@@ -695,7 +695,7 @@ footer#body-footer a:hover {
     line-height: 32px;
     background: #f1f1f1;
     /*border-radius: 5px;*/
-    
+
     padding: 5px 2px;
 }
 #all_tags {
@@ -1049,4 +1049,21 @@ footer#body-footer a:hover {
 }
 #share_box .bds_more:hover {
     background-position: -179px -30px!important;
+}
+.affix-top {
+    position: relative;
+}
+.affix {
+    top: 65px;
+}
+.affix,.affix-bottom {
+    width: 293.313px;
+}
+.affix-bottom {
+    position: absolute;
+}
+@media (min-width: 1200px) {
+    .affix,.affix-bottom {
+        width: 360px;
+    }
 }

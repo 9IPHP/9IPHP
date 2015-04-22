@@ -10,8 +10,10 @@ get_header(); ?>
             </div>
 		<![endif]-->
 		<?php if($layout == 'left_side'){ ?>
-		<aside id="side-bar" class="col-md-4 hidden-xs hidden-sm">
+		<aside class="col-md-4 hidden-xs hidden-sm">
+			<div id="sidebar">
 				<?php dynamic_sidebar( 'sidebar_home'); ?>
+			</div>
 		</aside>
 		<?php } ?>
         <section class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
@@ -108,8 +110,10 @@ get_header(); ?>
         </section>
         <!--侧边栏-->
 		<?php if($layout == 'right_side'){ ?>
-		<aside id="side-bar" class="col-md-4 hidden-xs hidden-sm">
+		<aside class="col-md-4 hidden-xs hidden-sm">
+			<div id="sidebar">
 				<?php dynamic_sidebar( 'sidebar_home'); ?>
+			</div>
 		</aside>
 		<?php } ?>
 <?php get_footer(); ?>
