@@ -1,6 +1,6 @@
 ﻿<?php
 
-define( '_9IPHP_VERSION', 1.3 );
+define( '_9IPHP_VERSION', 1.4 );
 //require_once(TEMPLATEPATH . '/inc/themeset.php');
 require_once(TEMPLATEPATH . '/inc/widgets.php');
 
