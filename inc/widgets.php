@@ -5,7 +5,7 @@ function specs_widgets_init() {
         'name' => __( 'Home Sidebar', '9iphp' ),
         'id' => 'sidebar_home',
         'description' => __( '首页默认边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
@@ -15,7 +15,7 @@ function specs_widgets_init() {
         'name' => __( 'Single Page', '9iphp' ),
         'id' => 'sidebar_single',
         'description' => __( '文章及页面边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
@@ -31,7 +31,7 @@ function specs_widgets_init() {
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
- 
+
     // Second Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
         'name' => __( 'Second Footer Widget Area', '9iphp' ),
@@ -42,7 +42,7 @@ function specs_widgets_init() {
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
- 
+
     // Third Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
         'name' => __( 'Third Footer Widget Area', '9iphp' ),
@@ -53,7 +53,7 @@ function specs_widgets_init() {
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
- 
+
     // Fourth Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
         'name' => __( 'Fourth Footer Widget Area', '9iphp' ),

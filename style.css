@@ -594,6 +594,14 @@ img.avatar {
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
 }
+.widget_links ul li{
+    padding: 0 15px;
+    line-height: 40px;
+    width: 50%;
+    float: left;
+    height: 40px;
+    overflow: hidden;
+}
 .textwidget, .tagcloud, .tag_clouds, .widget_search {
     padding: 10px 15px;
 }
