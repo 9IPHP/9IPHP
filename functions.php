@@ -10,7 +10,7 @@ require_once(TEMPLATEPATH . '/inc/theme-options.php');
 //特色图片支持
 add_theme_support( 'post-thumbnails' );
 /*  Add support for the multiple Post Formats  */
-add_theme_support( 'post-formats', array('status')); 
+add_theme_support( 'post-formats', array('status'));
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 //注册菜单
 if(!function_exists('specs_register_nav_menu')){
@@ -1215,11 +1215,11 @@ function _9iphp_custom_css() {
 		);
 
 	if(!empty($css_options)){ ?>
-	<style type="text/css">
+
 	<?php
-		echo (!empty($css_options['background_color'])) ? 'body{ background: '.$css_options['background_color']. '; } ' : '';
+		echo (!empty($css_options['background_color'])) ? '<style type="text/css">body{ background: '.$css_options['background_color']. '; } </style>' : '';
 	?>
-	</style>
+
 <?php }
 }
 add_action( 'wp_head', '_9iphp_custom_css', 100 );
@@ -1248,3 +1248,84 @@ function _9iphp_replace_avatar($avatar) {
   return $avatar;
 }
 add_filter( 'get_avatar', '_9iphp_replace_avatar', 10, 3 );
+/**
+* Disable the emoji's
+ */
+function disable_emojis() {
+    global $wp_version;
+    if ($wp_version >= 4.2) {
+        remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+        remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+        remove_action( 'wp_print_styles', 'print_emoji_styles' );
+        remove_action( 'admin_print_styles', 'print_emoji_styles' );
+        remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+        remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+        remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+        add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+    }
+}
+add_action( 'init', 'disable_emojis' );
+/**
+ * Filter function used to remove the tinymce emoji plugin.
+ *
+ * @param    array  $plugins
+ * @return   array             Difference betwen the two arrays
+ */
+function disable_emojis_tinymce( $plugins ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+}
+function smilies_reset() {
+    global $wpsmiliestrans, $wp_smiliessearch, $wp_version;
+    // don't bother setting up smilies if they are disabled
+    if ( !get_option( 'use_smilies' ) || $wp_version < 4.2)
+        return;
+
+    $wpsmiliestrans = array(
+    ':mrgreen:' => 'icon_mrgreen.gif',
+    ':neutral:' => 'icon_neutral.gif',
+    ':twisted:' => 'icon_twisted.gif',
+      ':arrow:' => 'icon_arrow.gif',
+      ':shock:' => 'icon_eek.gif',
+      ':smile:' => 'icon_smile.gif',
+        ':???:' => 'icon_confused.gif',
+       ':cool:' => 'icon_cool.gif',
+       ':evil:' => 'icon_evil.gif',
+       ':grin:' => 'icon_biggrin.gif',
+       ':idea:' => 'icon_idea.gif',
+       ':oops:' => 'icon_redface.gif',
+       ':razz:' => 'icon_razz.gif',
+       ':roll:' => 'icon_rolleyes.gif',
+       ':wink:' => 'icon_wink.gif',
+        ':cry:' => 'icon_cry.gif',
+        ':eek:' => 'icon_surprised.gif',
+        ':lol:' => 'icon_lol.gif',
+        ':mad:' => 'icon_mad.gif',
+        ':sad:' => 'icon_sad.gif',
+          '8-)' => 'icon_cool.gif',
+          '8-O' => 'icon_eek.gif',
+          ':-(' => 'icon_sad.gif',
+          ':-)' => 'icon_smile.gif',
+          ':-?' => 'icon_confused.gif',
+          ':-D' => 'icon_biggrin.gif',
+          ':-P' => 'icon_razz.gif',
+          ':-o' => 'icon_surprised.gif',
+          ':-x' => 'icon_mad.gif',
+          ':-|' => 'icon_neutral.gif',
+          ';-)' => 'icon_wink.gif',
+    // This one transformation breaks regular text with frequency.
+    //     '8)' => 'icon_cool.gif',
+           '8O' => 'icon_eek.gif',
+           ':(' => 'icon_sad.gif',
+           ':)' => 'icon_smile.gif',
+           ':?' => 'icon_confused.gif',
+           ':D' => 'icon_biggrin.gif',
+           ':P' => 'icon_razz.gif',
+           ':o' => 'icon_surprised.gif',
+           ':x' => 'icon_mad.gif',
+           ':|' => 'icon_neutral.gif',
+           ';)' => 'icon_wink.gif',
+          ':!:' => 'icon_exclaim.gif',
+          ':?:' => 'icon_question.gif',
+    );
+}
+smilies_reset();
