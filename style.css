@@ -500,24 +500,17 @@ h6.copyright {
 }
 /*归档文章*/
 
-#archives {
-    color: #868686;
-}
-#archives .al_year {
+#archives a{
     color: #080808;
-    padding: 5px 30px;
+    webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
 }
-ul.al_mon_list li {
-    padding: 2px 0;
-    line-height: 28px;
+#archives a:hover{
+    color: #ff4d3a;
 }
-ul.al_mon_list li em {
-    color: #c0392b;
-}
-ul.al_mon_list .al_mon {
-    display: block;
-    border-bottom: 1px dotted #ddd;
-    ;
+.list-archives li{
+    padding-left: 40px;
 }
 /*侧边栏*/
 

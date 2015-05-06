@@ -22,7 +22,7 @@ get_header(); ?>
 				</header>
 				<div id="archives" class="page-content">
 					<?php specs_archives_list();?>
-					<?php the_content(); ?>
+					<?php //the_content(); ?>
 				</div>
 				<footer class="entry-footer">
 					<!--评论模块-->

@@ -1,24 +1,10 @@
 $(function(){
 	//归档文章
-	$('#archives span.al_mon,#archives .al_year').css({cursor:"pointer"});
-	$('#archives span.al_mon').each(function(){
-		var num=$(this).next().children('li').size();
-		var text=$(this).text();
-		$(this).html(text+'<em> ( '+num+' 篇文章 )</em>');
-	});
-	var $al_post_list=$('#archives ul.al_post_list'),
-		$al_post_list_f=$('#archives ul.al_post_list:first');
-	$al_post_list.hide(1,function(){
-		$al_post_list_f.show();
-	});
-	$('#archives span.al_mon').click(function(){
-		$(this).next().slideToggle(400);
-		return false;
-	});
-	$("#archives .al_year").click(function(){
-		$(this).next().slideToggle(400);
-		return false;
-	});
+	$('#archives a.month').each(function(){
+        var num=$(this).parents('.panel').find('li').size();
+        var text=$(this).text();
+        $(this).html(text+'<em> ( '+num+' 篇文章 )</em>');
+    });
 });
 $(document).on("click",".share li a",
 	function(){

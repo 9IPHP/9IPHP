@@ -22,7 +22,7 @@ function specs_widgets_init() {
     ) );
 
     // First footer widget area, located in the footer. Empty by default.
-    register_sidebar( array(
+    /*register_sidebar( array(
         'name' => __( 'First Footer Widget Area', '9iphp' ),
         'id' => 'first-footer-widget-area',
         'description' => __( 'The first footer widget area', '9iphp' ),
@@ -63,7 +63,7 @@ function specs_widgets_init() {
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
-    ) );
+    ) );*/
 
 }
 add_action( 'widgets_init', 'specs_widgets_init' );

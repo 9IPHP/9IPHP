@@ -216,11 +216,11 @@ function specs_theme_scripts() {
     if(!is_admin()){
         $dir = get_template_directory_uri();
         wp_enqueue_script( 'jquerylib', $dir . '/js/jquery.min.js' , array(), '1.11.0');
-        wp_enqueue_script( 'bootstrap', $dir . '/inc/bootstrap-3.2.0/js/bootstrap.min.js', array(), '3.2.0');
+        wp_enqueue_script( 'bootstrap', $dir . '/inc/bootstrap-3.3.4/js/bootstrap.min.js', array(), '3.2.0');
 		wp_enqueue_script( 'lazyload', $dir . '/js/jquery.lazyload.js', array(), '1.19');
 		wp_enqueue_script( 'magnific-popup', $dir . '/inc/magnific/jquery.magnific-popup.js', array(), '0.9.9');
         wp_enqueue_script( '9iphp', $dir . '/js/9iphp.js', array(), _9IPHP_VERSION);
-        wp_enqueue_style( 'bootstrap-style', $dir . '/inc/bootstrap-3.2.0/css/bootstrap.min.css', array(), '3.2.0');
+        wp_enqueue_style( 'bootstrap-style', $dir . '/inc/bootstrap-3.3.4/css/bootstrap.min.css', array(), '3.2.0');
         wp_enqueue_style( 'awesome-style', $dir . '/inc/font-awesome/css/font-awesome.min.css', array(), '4.1.0');
 		wp_enqueue_style( 'magnific-popup-style', $dir . '/inc/magnific/magnific-popup.css', array(), '2.1.5');
         wp_enqueue_style( '9iphp-style', get_stylesheet_uri(), array(), _9IPHP_VERSION);
@@ -490,20 +490,29 @@ function specs_archives_list() {
             $year_tmp = get_the_time('Y');
             $mon_tmp = get_the_time('m');
             $y=$year; $m=$mon;
-            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';
-            if ($year != $year_tmp && $year > 0) $output .= '</ul>';
+            if ($i == 0) {$expanded = true; $in = 'in';}
+            else {$expanded = false; $in ='';}
+            $i ++;
+            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></div></div>';
+            if ($year != $year_tmp && $year > 0) $output .= '</div>';
             if ($year != $year_tmp) {
                 $year = $year_tmp;
-                $output .= '<h3 class="al_year">'. $year .' 年</h3><ul class="al_mon_list">'; //输出年份
+                $output .= '<h2>'. $year . ' 年</h2><div class="panel-group" role="tablist">'; //输出年份
             }
             if ($mon != $mon_tmp) {
                 $mon = $mon_tmp;
-                $output .= '<li><span class="al_mon">'. $mon .' 月</span><ul class="al_post_list">'; //输出月份
+                $output .= '<div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title" id="-collapsible-list-group-">
+                            <a class="collapsed month" data-toggle="collapse" href="#coll-'.$year.'-'.$mon.'" aria-expanded="'.$expanded.'" aria-controls="coll-'.$year.'-'.$mon.'">' . $mon . '月</a>
+                        </h4>
+                    </div>
+                    <div id="coll-'.$year.'-'.$mon.'" class="panel-collapse collapse '.$in.'">
+                        <ul class="list-group list-archives">'; //输出月份
             }
-            $output .= '<li>'. get_the_time('d日: ') .'<a href="'. get_permalink() .'" title="'.get_the_title().'">'. get_the_title() .'</a> <em>('. get_comments_number('0', '1', '%') .')</em></li>'; //输出文章日期和标题
+            $output .= '<li class="list-group-item">'. get_the_time('d日: ') .'<a href="'. get_permalink() .'" title="'.get_the_title().'">'. get_the_title() .'</a> <span class="badge fa fa-comments"> '. get_comments_number('0', '1', '%') .'</span></li>'; //输出文章日期和标题
         endwhile;
-        wp_reset_postdata();
-        $output .= '</ul></li></ul>';
+        $output .= '</ul></div></div></div>';
         update_option('specs_archives_list', $output);
     }
     echo $output;
