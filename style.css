@@ -1000,7 +1000,7 @@ footer#body-footer a:hover {
 }
 /*百度分享*/
 
-#share_box a {
+#share_box .bds {
     width: 30px;
     height: 30px;
     background: url("images/sharebg.png") no-repeat!important;

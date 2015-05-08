@@ -1013,13 +1013,13 @@ function comment_mail_notify($comment_id) {
     if (($parent_id != '') && ($spam_confirmed != 'spam')) {
         $wp_email = 'no-reply@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME'])); //e-mail 發出點, no-reply 可改為可用的 e-mail.
         $to = trim(get_comment($parent_id)->comment_author_email);
-        $subject = '你在 ' . get_option('blogname') .' 的留言有了新回复';
+        $subject = '你在 ' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) .' 的留言有了新回复';
 		$message = '
 			<div style="background: #F1F1F1;width: 100%;padding: 50px 0;">
 				<div style="background: #FFF;width: 750px;margin: 0 auto;">
-					<div style="padding: 10px 60px;background: #50A5E6;color: #FFF;font-size: 24px; font-weight: bold;"><a href="' . get_option('home') . '" style="text-decoration: none;color: #FFF;">' . get_option('blogname') . '</a></div>
+					<div style="padding: 10px 60px;background: #50A5E6;color: #FFF;font-size: 24px; font-weight: bold;"><a href="' . get_option('home') . '" style="text-decoration: none;color: #FFF;">' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . '</a></div>
 					<h1 style="text-align: center;font-size: 26px;line-height: 50px;margin: 30px 60px;font-weight: bold;font-family: 宋体,微软雅黑,serif;">
-						你在 [' . get_option('blogname') . '] 的留言有了新回复
+						你在 [' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . '] 的留言有了新回复
 					</h1>
 					<div style="border-bottom: 1px solid #333;height: 0px;margin: 0 60px;"></div>
 					<div style="margin: 30px 60px;color: #363636;">
@@ -1033,18 +1033,18 @@ function comment_mail_notify($comment_id) {
 							<blockquote style="border-left: 4px solid #ddd; padding: 5px 10px; line-height: 22px;">' . trim($comment->comment_content) . ' </blockquote>
 						</div>
 						<p style="font-size: 16px;line-height: 30px;">
-							你可以点击此链接 <a href="' . htmlspecialchars(get_comment_link($parent_id)) . '" style="text-decoration: none;color: #50A5E6;">查看完整回复内容</a> | 欢迎再次来访 <a href="' . get_option('home') . '" style="text-decoration: none;color: #50A5E6;">' . get_option('blogname') . '</a>
+							你可以点击此链接 <a href="' . htmlspecialchars(get_comment_link($parent_id)) . '" style="text-decoration: none;color: #50A5E6;">查看完整回复内容</a> | 欢迎再次来访 <a href="' . get_option('home') . '" style="text-decoration: none;color: #50A5E6;">' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . '</a>
 						</p>
 						<p style="color: #999;">(此邮件由系统自动发出，请勿回复！)</p>
 					</div>
 					<div style="border-bottom: 1px solid #dfdfdf;height: 0px;margin: 0 60px;"></div>
 					<div style="text-align: right;padding: 30px 60px;color: #999;">
-						<p>Powered by ' . get_option('blogname') .'</p>
+						<p>Powered by ' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) .'</p>
 					</div>
 				</div>
 			</div>';
 
-        $from = "From: \"" . get_option('blogname') . "\" <$wp_email>";
+        $from = "From: \"" . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . "\" <$wp_email>";
         $headers = "$from\nContent-Type: text/html; charset=" . get_option('blog_charset') . "\n";
         wp_mail( $to, $subject, $message, $headers );
     }
@@ -1065,13 +1065,13 @@ function specs_comment_approved($comment) {
         $wp_email = 'no-reply@' . preg_replace('#^www\.#', '', strtolower($_SERVER['SERVER_NAME'])); //e-mail 發出點, no-reply 可改為可用的 e-mail.
         $to = trim($comment->comment_author_email);
         $post_link = get_permalink($comment->comment_post_ID);
-        $subject = '你在 ' . get_option('blogname') .' 的留言已通过审核';
+        $subject = '你在 ' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) .' 的留言已通过审核';
 		$message = '
 			<div style="background: #F1F1F1;width: 100%;padding: 50px 0;">
 				<div style="background: #FFF;width: 750px;margin: 0 auto;">
-					<div style="padding: 10px 60px;background: #50A5E6;color: #FFF;font-size: 24px; font-weight: bold;"><a href="' . get_option('home') . '" style="text-decoration: none;color: #FFF;">' . get_option('blogname') . '</a></div>
+					<div style="padding: 10px 60px;background: #50A5E6;color: #FFF;font-size: 24px; font-weight: bold;"><a href="' . get_option('home') . '" style="text-decoration: none;color: #FFF;">' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . '</a></div>
 					<h1 style="text-align: center;font-size: 26px;line-height: 50px;margin: 30px 60px;font-weight: bold;font-family: 宋体,微软雅黑,serif;">
-						你在 [' . get_option('blogname') . '] 的留言通过了审核
+						你在 [' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . '] 的留言通过了审核
 					</h1>
 					<div style="border-bottom: 1px solid #333;height: 0px;margin: 0 60px;"></div>
 					<div style="margin: 30px 60px;color: #363636;">
@@ -1085,18 +1085,18 @@ function specs_comment_approved($comment) {
 						</div>
 
 						<p style="font-size: 16px;line-height: 30px;">
-							你可以点击此链接 <a href="'.get_comment_link( $comment->comment_ID ).'" style="text-decoration: none;color: #50A5E6;" >查看完整回复内容</a> | 欢迎再次来访 <a href="' . get_option('home') . '" style="text-decoration: none;color: #50A5E6;">' . get_option('blogname') . '</a>
+							你可以点击此链接 <a href="'.get_comment_link( $comment->comment_ID ).'" style="text-decoration: none;color: #50A5E6;" >查看完整回复内容</a> | 欢迎再次来访 <a href="' . get_option('home') . '" style="text-decoration: none;color: #50A5E6;">' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . '</a>
 						</p>
 						<p style="color: #999;">(此邮件由系统自动发出，请勿回复！)</p>
 					</div>
 					<div style="border-bottom: 1px solid #dfdfdf;height: 0px;margin: 0 60px;"></div>
 					<div style="text-align: right;padding: 30px 60px;color: #999;">
-						<p>Powered by ' . get_option('blogname') .'</p>
+						<p>Powered by ' . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) .'</p>
 					</div>
 				</div>
 			</div>';
 
-        $from = "From: \"" . get_option('blogname') . "\" <$wp_email>";
+        $from = "From: \"" . htmlspecialchars_decode(get_option('blogname'), ENT_QUOTES) . "\" <$wp_email>";
         $headers = "$from\nContent-Type: text/html; charset=" . get_option('blog_charset') . "\n";
         wp_mail( $to, $subject, $message, $headers );
     }
@@ -1187,6 +1187,24 @@ function _9iphp_excerpt_more($more) {
 }
 add_filter('excerpt_more', '_9iphp_excerpt_more');
 
+function _9iphp_post_image(){
+    global $post;
+    if (has_post_thumbnail($post->ID)) {
+        $post_thumbnail_id = get_post_thumbnail_id( $post_id );
+        $img = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
+        $img = $img[0];
+    }else{
+        $content = $post->post_content;
+        preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
+        if (!empty($strResult[1])) {
+            $img = $strResult[1][0];
+        }else{
+            // $img = get_template_directory_uri() .'/images/share.jpg';
+            $img = '';
+        }
+    }
+    return $img;
+}
 function _9iphp_post_thumbnail( $width = 255,$height = 130 ){
     global $post;
     $content = $post->post_content;

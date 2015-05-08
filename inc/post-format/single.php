@@ -83,16 +83,39 @@
 			$share_btn_pos = of_get_option('share_btn_pos', false);
 			if ($share_btn_pos['single']) {
 		?>
-			<div class="bdsharebuttonbox share" id="share_box">
-				<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-				<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-				<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
-				<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-				<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-				<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-				<a href="#" class="bds_more" data-cmd="more"></a>
+			<div id="share_box" class="bdsharebuttonbox" data-tag="share_2">
+				<a href="#" class="bds bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a href="#" class="bds bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+				<a href="#" class="bds bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+				<a href="#" class="bds bds_renren" data-cmd="renren" title="分享到人人网"></a>
+				<a href="#" class="bds bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				<a href="#" class="bds bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+				<a href="#" class="bds bds_more" data-cmd="more"></a>
+				<a class="bds_count" data-cmd="count"></a>
+				<script type="text/javascript">
+				window._bd_share_config={
+				    "common":{
+				        "bdSnsKey":{},
+				        "bdMini":"2",
+				        "bdMiniList":false,
+				        "bdStyle":"0",
+				        "bdText":"一篇好文,推荐之-【<?php the_title();?>】（来自:<?php echo htmlspecialchars_decode(get_bloginfo('name'),ENT_QUOTES); ?>）",
+				        "bdDesc":"<?php the_excerpt();?>",
+				        "bdPic" : "<?php echo _9iphp_post_image();?>",
+				        "bdUrl": "<?php the_permalink() ?>"
+				    },
+				    "share" : [{
+				        "tag" : "share_1",
+				        "bdSize" : "16"
+				    },
+				    {
+				        "tag" : "share_2",
+				        "bdSize" : "32"
+				    }]
+				};
+				with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+				</script>
 			</div>
-			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 		<?php } ?>
 		<!--分享-->
 		<!--相关文章-->
