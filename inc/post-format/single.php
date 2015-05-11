@@ -100,7 +100,6 @@
 				        "bdMiniList":false,
 				        "bdStyle":"0",
 				        "bdText":"一篇好文,推荐之-【<?php the_title();?>】（来自:<?php echo htmlspecialchars_decode(get_bloginfo('name'),ENT_QUOTES); ?>）",
-				        "bdDesc":"<?php the_excerpt();?>",
 				        "bdPic" : "<?php echo _9iphp_post_image();?>",
 				        "bdUrl": "<?php the_permalink() ?>"
 				    },
