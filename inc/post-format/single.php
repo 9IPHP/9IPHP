@@ -37,6 +37,8 @@
 			}
 		?>
 		<?php the_content(); ?>
+		<hr>
+		<?php the_excerpt();?>
 		<div class="pull-right single-pages">
 			<?php link_pages('<p>Pages: ', '</p>', 'number'); ?>
 		</div>
@@ -99,8 +101,9 @@
 				        "bdMini":"2",
 				        "bdMiniList":false,
 				        "bdStyle":"0",
-				        "bdText":"一篇好文,推荐之-【<?php the_title();?>】（来自:<?php echo htmlspecialchars_decode(get_bloginfo('name'),ENT_QUOTES); ?>）",
+				        "bdText":"一篇好文,推荐之-【<?php htmlspecialchars_decode(the_title(), ENT_QUOTES);?>】（来自:<?php echo htmlspecialchars_decode(get_bloginfo('name'), ENT_QUOTES); ?>）",
 				        "bdPic" : "<?php echo _9iphp_post_image();?>",
+				        "bdDesc": "<?php echo strip_tags(get_the_excerpt());?>",
 				        "bdUrl": "<?php the_permalink() ?>"
 				    },
 				    "share" : [{
