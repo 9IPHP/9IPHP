@@ -37,8 +37,6 @@
 			}
 		?>
 		<?php the_content(); ?>
-		<hr>
-		<?php the_excerpt();?>
 		<div class="pull-right single-pages">
 			<?php link_pages('<p>Pages: ', '</p>', 'number'); ?>
 		</div>
