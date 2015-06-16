@@ -1,7 +1,7 @@
 <?php
 $layout = of_get_option('side_bar');
 $layout = (empty($layout)) ? 'right_side' : $layout;
-
+$only_sider = of_get_option('only_sider');
 get_header(); ?>
 		<!--[if lt IE 8]>
 		<div id="ie-warning" class="alert alert-danger fade in visible-lg">
@@ -16,6 +16,7 @@ get_header(); ?>
 			</div>
 		</aside>
 		<?php } ?>
+		<?php if(!$only_sider){?>
         <section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 			<!--首页幻灯片-->
 			<?php
@@ -108,6 +109,19 @@ get_header(); ?>
 			<!--分页-->
 			<?php specs_pages(3);?>
         </section>
+        <?php }
+        else{ ?>
+       
+		<section class="col-md-8 ">
+		<?php
+				if(is_home()){
+					specs_slide();
+				} ?>
+			<div id="main">
+				<?php dynamic_sidebar( 'sidebar_plus'); ?>
+			</div>
+		</section>
+        <?php } ?>
         <!--侧边栏-->
 		<?php if($layout == 'right_side'){ ?>
 		<aside class="col-md-4 hidden-xs hidden-sm">

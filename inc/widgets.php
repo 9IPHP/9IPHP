@@ -10,7 +10,15 @@ function specs_widgets_init() {
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
-
+register_sidebar( array(
+        'name' => __( 'Home Sidebar Plus', '9iphp' ),
+        'id' => 'sidebar_plus',
+        'description' => __( '首页扩展边栏, 当设置只显示边栏时才会显示', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>'
+    ) );
     register_sidebar( array(
         'name' => __( 'Single Page', '9iphp' ),
         'id' => 'sidebar_single',
@@ -528,7 +536,78 @@ class specs_tj extends WP_Widget {
 	}
 }
 
+//附加1
+class plus1 extends WP_Widget{
+    function __construct(){
+      
+        $widget_opts = array(
+              'name'        => '附加模块-文章',
+              'description' => '新闻、公告'
+        );
+        parent::WP_Widget( false, false, $widget_opts );
+    }
+    function widget($args, $instance){
+        extract($args);
+        $result = '';
+        //echo $title;
+        $number = (!empty($instance['number'])) ? intval($instance['number']) : 5;
+        ?>
+        <div class="widget widget-posts">
+            <ul id="myTab" class="nav nav-tabs nav-justified visible-lg" style="background-color: rgba(251,255,255,0.50);" >
+                <li class="active"><a href="#hot" data-toggle="tab"><h2><i class="fa fa-fire"></i> 新闻</h2></a></li>
+                <li><a href="#newest" data-toggle="tab"><h2><i class="fa fa-exclamation"></i> 公告</h2></a></li>
+            </ul>
+            <ul id="myTab" class="nav nav-tabs nav-justified visible-md" style="background-color: rgba(251,255,255,0.50);" >
+                <li class="active"><a href="#hot" data-toggle="tab"><h2><i class="fa fa-fire"></i> 新闻</h2></a></li>
+                <li><a href="#newest" data-toggle="tab"><h2><i class="fa fa-exclamation"></i> 公告</h2></a></li>              
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active"id="hot">
+                    <ul class="list-group">
+                        <?php if(function_exists('most_comm_posts')) most_comm_posts(60, $number); ?>
+                    </ul>
+                </div>
+                <div class="tab-pane fade"id="newest">
+                    <ul class="list-group">
+                        <?php $myposts = get_posts('numberposts='.$number.' & offset=0'); foreach($myposts as $post) : ?>
+                            <a class="list-group-item visible-lg" title="<?php echo $post->post_title;?>" href="<?php echo get_permalink($post->ID); ?>" rel="bookmark">
+                                <?php echo specs_string_cut(strip_tags($post->post_title), 18); ?>
+                                <i class="fa fa-comment badge"> <?php echo $post->comment_count; ?></i>
+                            </a>
+                            <a class="list-group-item visible-md" title="<?php echo $post->post_title;?>" href="<?php echo get_permalink($post->ID); ?>" rel="bookmark">
+                                <?php echo specs_string_cut(strip_tags($post->post_title), 12); ?>
+                                <i class="fa fa-comment badge"> <?php echo $post->comment_count; ?></i>
+                            </a>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+        <?php
+    }
+    function update($new_instance, $old_instance){
+        if (!isset($new_instance['submit'])) {
+            return false;
+        }
+        $instance = $old_instance;
+        $instance['number'] = intval($new_instance['number']);
+        return $instance;
+    }
 
+    function form($instance){
+        global $wpdb;
+        $instance = wp_parse_args((array) $instance, array('number'=>'5'));
+        $number = intval($instance['number']);
+        ?>
+
+        <p>
+            <label for='<?php echo $this->get_field_id("number");?>'>显示数量(默认显示5条)：<input type='text' name='<?php echo $this->get_field_name("number");?>' id='<?php echo $this->get_field_id("number");?>' value="<?php echo $number;?>"/></label>
+        </p>
+        <input type="hidden" id="<?php echo $this->get_field_id('submit'); ?>" name="<?php echo $this->get_field_name('submit'); ?>" value="1" />
+        <?php
+    }
+}
 function specs_register_widgets(){
 	register_widget('specs_widget_ad');  //边栏广告
     register_widget('specs_widget_notice');  //边栏公告
@@ -537,6 +616,7 @@ function specs_register_widgets(){
     register_widget('specs_widget_posts'); //热门文章、最新文章、随机文章
 	register_widget('specs_recommend');  //每日推荐
 	register_widget('specs_tj');  //站点统计
+    register_widget('plus1');  //附加1
 }
 add_action('widgets_init','specs_register_widgets');
 ?>

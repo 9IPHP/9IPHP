@@ -1,4 +1,21 @@
 <?php
+
+function Add_sider_plus()
+{
+	register_sidebar( array(
+        'name' => __( 'Home Sidebar Plus', '9iphp' ),
+        'id' => 'sidebar_plus',
+        'description' => __( '首页扩展边栏, 当设置只显示边栏时才会显示', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>'
+    ) );
+}
+add_action( 'widgets_init', 'Add_sider_plus' );
+
+
+
 /**
  * A unique identifier is defined to store the options in the database and reference them from the theme.
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
@@ -139,15 +156,23 @@ function optionsframework_options() {
 		'type' => 'color' );
 	$options[] = array(
 		'name' => '博客整体布局',
-		'desc' => '选择你喜欢的整体布局,显示左边栏，右边栏或者不显示任何边栏。默认:显示右边栏',
+		'desc' => '选择你喜欢的整体布局, 不显示任何边栏, 显示左边栏，右边栏。默认:显示右边栏',
 		'id' => "side_bar",
 		'std' => "right_side",
 		'type' => "images",
 		'options' => array(
 			'single' => $imagepath . '1col.png',
 			'left_side' => $imagepath . '2cl.png',
-			'right_side' => $imagepath . '2cr.png')
+			'right_side' => $imagepath . '2cr.png',
+			)
 	);
+$options[] = array(
+		'name' => '使用扩展边栏替代文章栏',
+		'desc' => '选中此项，只显示边栏, 并添加扩展边栏替代文章栏',
+		'id' => 'only_sider',
+		'std' => '0',
+		'type' => 'checkbox');
+
 	$options[] = array(
 		'name' => '禁用菜单固定在顶部',
 		'desc' => '选中此项，禁用菜单固定在顶部',

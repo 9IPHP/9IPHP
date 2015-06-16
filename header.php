@@ -50,7 +50,9 @@
 switch (of_get_option('background_mode')) {
 	case 'image':
 		if(of_get_option('background_image')){
-			echo '<div class="specs_background">'.(of_get_option('show_stripe') ? '<div id="stripe"></div>' : ''). '<img src="'.of_get_option('background_image').'"></div>';
+ echo '<div style="position: fixed; z-index: -1; width: 100%; height: 100%; left: 0; top: 0; background-repeat: no-repeat;background-size: cover; background-image: url('.of_get_option('background_image').');">'.(of_get_option('show_stripe') ? '<div id="stripe"></div>' : ''). '</div>';
+
+			//echo '<div class="specs_background">'.(of_get_option('show_stripe') ? '<div id="stripe"></div>' : ''). '<img src="'.of_get_option('background_image').'"></div>';
 		}
 	break;
 	case 'pattern':

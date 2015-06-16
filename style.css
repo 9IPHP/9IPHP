@@ -1,6 +1,6 @@
 ﻿/*
 # Copyright (C) 2014 9IPHP.COM
-Theme Name: 9IPHP
+Theme Name: 9IPHP - 改
 Theme URI: http://9iphp.com
 Author: Specs
 Author URI: http://9iphp.com/
@@ -621,14 +621,14 @@ img.avatar {
 /*底部*/
 
 footer#body-footer {
-    padding: 10px 20px;
-    background: #393939;
-    position: relative;
-    bottom: 0;
+	padding: 10px 20px;
+	background: #393939;
+	position: relative;
+	bottom: 0;
 }
 .bottomcp {
-    text-align: center;
-    color: #fff;
+	text-align: center;
+	color: #fff;
 }
 footer#body-footer a, #today {
     color: #ff4d3a;
@@ -947,12 +947,13 @@ footer#body-footer a:hover {
 /*背景*/
 
 .specs_background {
-    position: fixed;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-repeat: repeat;
 }
 .specs_background img {
     width: 100%;
