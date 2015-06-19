@@ -1,4 +1,4 @@
-<article class="well clearfix">
+<article class="well clearfix <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?>">
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) {?>
 			<a href="<?php the_permalink() ?>" class="entry-cover">

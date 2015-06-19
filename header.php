@@ -124,7 +124,11 @@ switch (of_get_option('background_mode')) {
                     echo '<ul class="nav navbar-nav">';
                     wp_list_pages('sort_column=menu_order&title_li=');
                     echo '</ul>';
-                } ?>
+                } 
+                $hide_search_box = of_get_option('hide_search_box'); 
+                if(!$hide_search_box) {
+                    ?>
+
                 <form action="<?php echo home_url( '/' ); ?>" method="get" id="searchform" class="navbar-form navbar-right visible-lg" role="search">
                     <div class="form-group">
                         <input type="text" name='s' id='s' class="form-control" placeholder="这里有你想要的" x-webkit-speech>
@@ -132,6 +136,7 @@ switch (of_get_option('background_mode')) {
                     </div>
                     <!--<button type="submit" class="btn btn-primary">Submit</button>-->
                 </form>
+                <?php } ?>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

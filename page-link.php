@@ -4,6 +4,7 @@ Template Name: 友情链接
 */
 $layout = of_get_option('side_bar');
 $layout = (empty($layout)) ? 'right_side' : $layout;
+$postStyle = of_get_option('data-poststyle');
 get_header();
 $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
     						   $wpdb->term_taxonomy T2 WHERE T1.term_id = T2.term_id
@@ -18,7 +19,7 @@ $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
 	<?php } ?>
 	<section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article class="well clearfix page">
+			<article class="well clearfix page <?php echo $postStyle?>">
 				<header class="entry-header">
 					<h1 class="entry-title">
 						<?php the_title(); ?>

@@ -7,7 +7,7 @@
      *
      * If none of the sidebars have widgets, then let's bail early.
      */
-    /*if (   is_active_sidebar( 'first-footer-widget-area'  )
+    if (   is_active_sidebar( 'first-footer-widget-area'  )
         && is_active_sidebar( 'second-footer-widget-area' )
         && is_active_sidebar( 'third-footer-widget-area'  )
         && is_active_sidebar( 'fourth-footer-widget-area' )
@@ -43,9 +43,10 @@
     <aside class="footer-widget row">
         <div class="first col-md-12 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
     </aside>
-    <?php endif; */?>
-    <div  class="container clearfix bottomcp">
-        Copyright © 2014 <?php bloginfo('name'); ?> |
+    <?php endif; ?>
+
+    <div  class="container clearfix bottomcp" style="padding-top: 25px;padding-bottom: 10px;">
+        Copyright © 2015 <?php bloginfo('name'); ?> |
         <?php $site_analytics = of_get_option('site_analytics', false); if($site_analytics){ echo (strpos($site_analytics, '<script') === false) ? '<script>'.$site_analytics.'</script> | ' : $site_analytics . ' | '; } ?>
         Theme By <a href="http://9iphp.com" title="Specs' Bolg" target="_blank">Specs</a>
     </div>

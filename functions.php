@@ -1117,6 +1117,7 @@ function specs_slide(){
 			}
 			$count = count($slides);
 			//print_r($slides);print_r($slides_url);
+
 			$output .= '<div id="slide" class="carousel slide" data-ride="carousel">';
 			$output .= '<ol class="carousel-indicators">';
 			for($i=0; $i<$count; $i++){

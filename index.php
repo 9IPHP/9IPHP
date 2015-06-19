@@ -21,10 +21,13 @@ get_header(); ?>
 			<!--首页幻灯片-->
 			<?php
 				if(is_home()){
+					$postStyle = of_get_option('data-poststyle'); 
+					echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
 					specs_slide();
+					echo '</div>';
 				}elseif(is_category()){
 			?>
-					<header class="archive-header well">
+					<header class="archive-header well <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?>">
 						<h1 class="archive-title">
 							分类目录：<?php echo single_cat_title( '', false );?>
 						</h1>
@@ -103,7 +106,7 @@ get_header(); ?>
 					}
 				}else{
 			?>
-			<article class="alert alert-warning"><?php _e('非常抱歉，没有相关文章。'); ?></article>
+			<article class="alert alert-warning <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?>"><?php _e('非常抱歉，没有相关文章。'); ?></article>
 			<?php } ?>
 			<!--首页文章列表模块-->
 			<!--分页-->
@@ -115,9 +118,12 @@ get_header(); ?>
 		<section class="col-md-8 ">
 		<?php
 				if(is_home()){
+					$postStyle = of_get_option('data-poststyle'); 
+					echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
 					specs_slide();
+					echo '</div>';
 				} ?>
-			<div id="main">
+			<div id="main"  class="row-fluid">
 				<?php dynamic_sidebar( 'sidebar_plus'); ?>
 			</div>
 		</section>

@@ -1,18 +1,5 @@
 <?php
 
-function Add_sider_plus()
-{
-	register_sidebar( array(
-        'name' => __( 'Home Sidebar Plus', '9iphp' ),
-        'id' => 'sidebar_plus',
-        'description' => __( '首页扩展边栏, 当设置只显示边栏时才会显示', '9iphp' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
-        'after_widget' => '</aside>',
-        'before_title' => '<div class="panel-heading"><h2>',
-        'after_title' => '</h2></div>'
-    ) );
-}
-add_action( 'widgets_init', 'Add_sider_plus' );
 
 
 
@@ -168,7 +155,7 @@ function optionsframework_options() {
 	);
 $options[] = array(
 		'name' => '使用扩展边栏替代文章栏',
-		'desc' => '选中此项，只显示边栏, 并添加扩展边栏替代文章栏',
+		'desc' => '选中此项，添加扩展边栏替代文章栏',
 		'id' => 'only_sider',
 		'std' => '0',
 		'type' => 'checkbox');
@@ -179,9 +166,50 @@ $options[] = array(
 		'id' => 'disable_fixed_header',
 		'std' => '0',
 		'type' => 'checkbox');
+	
+	$options[] = array(
+		'name' => '隐藏搜索部件',
+		'desc' => '选中此项，隐藏搜索部件',
+		'id' => 'hide_search_box',
+		'std' => '0',
+		'type' => 'checkbox');
+
 	$options[] = array(
 		'name' => '文章 && 页面',
 		'type' => 'heading');
+		$options[] = array(
+		'name' => '文章边框样式',
+		'desc' => '',
+		'id' => 'data-poststyle',
+		'std' => 'boxcss_1',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => array(
+		'boxcss_1' => '白色',
+		'boxcss_5' => '白色2',
+		'boxcss_7' => '白色3',
+		'boxcss_8' => '白色4',
+		'boxcss_10' => '白色5',
+		'boxcss_11' => '白色6',
+		'boxcss_12' => '白色7',
+		'boxcss_16' => '白色8',
+		'boxcss_17' => '白色9',
+		'boxcss_21' => '白色10',
+		'boxcss_6' => '白色11',
+		'boxcss_2' => '白色-渐隐',
+		'boxcss_3' => '白色-半透明',
+		'boxcss_9' => '白色-层叠',
+		'boxcss_20' => '白色-层叠-半透明',
+		'boxcss_4' => '灰色',
+		'boxcss_13' => '灰色2',
+		'boxcss_22' => '灰色3',
+		'boxcss_14' => '条纹',
+		'boxcss_15' => '棱台',		
+		'boxcss_18' => '棕色',
+		'boxcss_19' => '黄色'
+		)
+
+	);
 	$options[] = array(
 		'name' => '热门文章',
 		'desc' => '文章评论数大于等于 N 为热门文章',
