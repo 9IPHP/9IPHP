@@ -27,7 +27,7 @@ get_header(); ?>
 					echo '</div>';
 				}elseif(is_category()){
 			?>
-					<header class="archive-header well <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?>">
+					<header class=" <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?> archive-header well">
 						<h1 class="archive-title">
 							分类目录：<?php echo single_cat_title( '', false );?>
 						</h1>
@@ -106,7 +106,7 @@ get_header(); ?>
 					}
 				}else{
 			?>
-			<article class="alert alert-warning <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?>"><?php _e('非常抱歉，没有相关文章。'); ?></article>
+			<article class="<?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?> alert alert-warning "><?php _e('非常抱歉，没有相关文章。'); ?></article>
 			<?php } ?>
 			<!--首页文章列表模块-->
 			<!--分页-->

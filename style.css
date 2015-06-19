@@ -146,6 +146,7 @@ a:hover, a:focus, .entry-meta a:hover, a.more-link, a.entry-cover:before, .entry
     border: 1px solid #E3E3E3;
     overflow: hidden;
     box-shadow: none;
+	padding:20px!important;
 }
 .badge {
     /*background-color: #38353D;*/
@@ -630,6 +631,7 @@ footer#body-footer {
 	bottom: 0;
 	-webkit-box-shadow: 0px 0 20px rgba(0,0,0,0.50);
 	box-shadow: 0px 0 20px rgba(0,0,0,0.50);
+	margin-top: 20px;
 }
 aside.footer-widget.row> div> aside{
 	background-color: rgba(0,0,0,0.00);
@@ -1098,7 +1100,7 @@ footer#body-footer a:hover {
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-	margin-bottom: 25px;
+	
 }
  
 .boxcss_2{
@@ -1111,7 +1113,7 @@ footer#body-footer a:hover {
     -webkit-box-shadow: inset 0 1px 1px 0 #c7c7c7;
     -moz-box-shadow: inset 0 1px 1px 0 #c7c7c7;
     box-shadow: inset 0 1px 1px 0 #c7c7c7;
-    margin-bottom: 25px;
+    
 }
 .boxcss_3{
     background: rgba(255,255,255,0.3);
@@ -1121,7 +1123,7 @@ footer#body-footer a:hover {
     -moz-border-radius: 3px;
     border-radius: 3px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    margin-bottom: 25px;
+    
 }
 .boxcss_4{
    /* display: block;*/
@@ -1133,7 +1135,7 @@ footer#body-footer a:hover {
     -moz-box-shadow: 0 0 15px rgba(0,0,0,0.3);
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     background-color: #ccc;
-    margin-bottom: 25px;
+    
 }
 .boxcss_5{
    /* display: block;*/
@@ -1147,7 +1149,7 @@ footer#body-footer a:hover {
     -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    margin-bottom: 25px;
+    
 }
 .boxcss_6{
    /* display: block;*/
@@ -1158,7 +1160,7 @@ footer#body-footer a:hover {
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_7{
@@ -1176,7 +1178,7 @@ footer#body-footer a:hover {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
     padding: 19px;
     position: relative;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_7{
@@ -1201,7 +1203,7 @@ footer#body-footer a:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     background: white;
     border: 1px solid #999;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_9{
@@ -1211,7 +1213,7 @@ footer#body-footer a:hover {
     -webkit-box-shadow:0 0 60px 10px rgba(0, 0, 0, .1) inset, 0 5px 0 -4px #fff, 0 5px 0 -3px #c2c0b8, 0 11px 0 -8px #fff, 0 11px 0 -7px #c2c0b8, 0 17px 0 -12px #fff, 0 17px 0 -11px #c2c0b8;
     -moz-box-shadow:0 0 60px 10px rgba(0, 0, 0, .1) inset, 0 5px 0 -4px #fff, 0 5px 0 -3px #c2c0b8, 0 11px 0 -8px #fff, 0 11px 0 -7px #c2c0b8, 0 17px 0 -12px #fff, 0 17px 0 -11px #c2c0b8;
     box-shadow:0 0 60px 10px rgba(0, 0, 0, .1) inset, 0 5px 0 -4px #fff, 0 5px 0 -3px #c2c0b8, 0 11px 0 -8px #fff, 0 11px 0 -7px #c2c0b8, 0 17px 0 -12px #fff, 0 17px 0 -11px #c2c0b8;
-    margin-bottom: 25px;
+    
 }
  
 
@@ -1232,7 +1234,7 @@ footer#body-footer a:hover {
     background: -moz-linear-gradient(top, #fff, #dfdfdf 50%, #cecece);
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5, #dfdfdf), to(#cecece));
     filter: progid:DXImageTransform.Microsoft.gradient(StartColorStr='#FFFFFF', EndColorStr='#CECECE');
-    margin-bottom: 25px;
+    
 }
 .boxcss_14{
     padding: 18px;
@@ -1264,7 +1266,7 @@ footer#body-footer a:hover {
     -webkit-background-size: 50px 50px;
     -moz-background-size: 50px 50px;
     background-size: 50px 50px; /* Controls the size of the stripes */
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_15{
@@ -1279,7 +1281,7 @@ footer#body-footer a:hover {
     -moz-border-radius:3px;
     border-radius:3px;
     position:relative;
-    margin-bottom: 25px;
+    
 }
 .boxcss_16{
     background: #fff;
@@ -1289,7 +1291,7 @@ footer#body-footer a:hover {
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
-    margin-bottom: 25px;
+    
 }
 /*new themes and boxes*/
 .boxcss_17{
@@ -1305,7 +1307,7 @@ footer#body-footer a:hover {
   padding: 10px 15px 10px 15px ;
   border-radius: 2px 2px 2px 2px;
   -webkit-box-shadow: 0 10px 6px -6px #797979;
-  margin-bottom: 25px;
+  
 }
  
 .boxcss_18{
@@ -1314,20 +1316,21 @@ footer#body-footer a:hover {
     margin:5px;
     padding: 10px ;
     vertical-align:top;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_19{
-    background: #F2EA7E ;
-    /*background-color: #F2EA7E;
-    background-image: -webkit-repeating-linear-gradient(top, #F2EA7E 30px, #F2EA7E 30px, #F6D5AD 31px, #F2EA7E 31px, #F2EA7E 60px);*/
-    box-shadow:0 0 3px #000000;
-    border-radius:4px;
-    /*display: inline-block;*/
-    margin:5px;
-    padding: 10px ;
-    vertical-align:top;
-    margin-bottom: 25px;
+	background-color: rgba(199,199,199,0.90);
+
+	border-radius: 5px;
+	/*display: inline-block;*/
+	margin: 5px;
+	padding: 10px;
+	vertical-align: top;
+	color: rgba(60,60,60,1.00)!important;
+	 -webkit-filter:invert(1);
+	border: 1px none #e3e3e3!important;	
+	box-shadow: 0 0 20px 00px rgba(200,200, 200, .8);
 }
  
 .boxcss_20{
@@ -1340,7 +1343,7 @@ footer#body-footer a:hover {
     opacity:0.95;
     padding: 10px;
     vertical-align:top;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_21{
@@ -1352,7 +1355,7 @@ footer#body-footer a:hover {
     margin:5px;
     padding: 10px;
     vertical-align:top;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_22{
@@ -1363,7 +1366,7 @@ footer#body-footer a:hover {
     margin:5px;
     padding: 10px;
     vertical-align:top;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_10{
@@ -1373,7 +1376,7 @@ footer#body-footer a:hover {
 	margin: 5px;
 	padding: 10px;
 	vertical-align: top;
-	margin-bottom: 25px;
+	
 	
 }
  
@@ -1392,7 +1395,7 @@ footer#body-footer a:hover {
     margin:5px;
     padding:10px;
     vertical-align:top;
-    margin-bottom: 25px;
+    
 }
  
 .boxcss_12{
@@ -1406,5 +1409,25 @@ footer#body-footer a:hover {
     margin:5px;
     padding:10px;
     vertical-align:top;
-    margin-bottom: 25px;
+    
+}
+.boxcss_23{
+	background: #fefefe;
+	border-radius: 5px;
+    box-shadow: 0 10px 5px -6px #8a8a8a;
+    border:1px #f5f5f5 solid;
+    /*display: inline-block;*/
+    margin:5px;
+    padding:10px;
+    vertical-align:top;
+	-webkit-filter:blur(1px);
+}
+.boxcss_24{
+position: relative;
+min-width: 255px;
+border: 1px solid #e5e5e5;
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+box-shadow: 0 1px 1px rgba(0,0,0,.04);
+background: #fff;
+border-radius: 50px;
 }

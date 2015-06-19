@@ -173,7 +173,12 @@ $options[] = array(
 		'id' => 'hide_search_box',
 		'std' => '0',
 		'type' => 'checkbox');
-
+	$options[] = array(
+		'name' => '隐藏主题信息',
+		'desc' => '选中此项，隐藏主题作者链接',
+		'id' => 'hide_theme_link',
+		'std' => '0',
+		'type' => 'checkbox');
 	$options[] = array(
 		'name' => '文章 && 页面',
 		'type' => 'heading');
@@ -196,7 +201,9 @@ $options[] = array(
 		'boxcss_17' => '白色9',
 		'boxcss_21' => '白色10',
 		'boxcss_6' => '白色11',
-		'boxcss_2' => '白色-渐隐',
+		
+		'boxcss_2' => '白色12',
+		'boxcss_24' => '白色13',
 		'boxcss_3' => '白色-半透明',
 		'boxcss_9' => '白色-层叠',
 		'boxcss_20' => '白色-层叠-半透明',
@@ -204,9 +211,10 @@ $options[] = array(
 		'boxcss_13' => '灰色2',
 		'boxcss_22' => '灰色3',
 		'boxcss_14' => '条纹',
-		'boxcss_15' => '棱台',		
+		'boxcss_15' => '棱台',
 		'boxcss_18' => '棕色',
-		'boxcss_19' => '黄色'
+		'boxcss_19' => '反色',	
+		'boxcss_23' => '模糊'
 		)
 
 	);

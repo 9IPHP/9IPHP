@@ -19,7 +19,7 @@ $linkcats = $wpdb->get_results("SELECT T1.name AS name FROM $wpdb->terms T1,
 	<?php } ?>
 	<section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article class="well clearfix page <?php echo $postStyle?>">
+			<article class="<?php echo $postStyle?> well clearfix page ">
 				<header class="entry-header">
 					<h1 class="entry-title">
 						<?php the_title(); ?>

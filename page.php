@@ -16,7 +16,7 @@ get_header(); ?>
 	<section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article class="well clearfix page <?php echo $postStyle?>" id="post">
+			<article class="<?php echo $postStyle?> well clearfix page " id="post">
 				<header class="entry-header">
 					<h1 class="entry-title">
 						<?php the_title(); ?>

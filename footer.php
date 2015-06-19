@@ -46,9 +46,18 @@
     <?php endif; ?>
 
     <div  class="container clearfix bottomcp" style="padding-top: 25px;padding-bottom: 10px;">
-        Copyright © 2015 <?php bloginfo('name'); ?> |
-        <?php $site_analytics = of_get_option('site_analytics', false); if($site_analytics){ echo (strpos($site_analytics, '<script') === false) ? '<script>'.$site_analytics.'</script> | ' : $site_analytics . ' | '; } ?>
-        Theme By <a href="http://9iphp.com" title="Specs' Bolg" target="_blank">Specs</a>
+        Copyright © 2015 <?php bloginfo('name'); ?> <br>
+        <?php 
+            $site_analytics = of_get_option('site_analytics', false);
+            if($site_analytics){ echo (strpos($site_analytics, '<script') === false) ? '<script>'.$site_analytics.'</script> ' : $site_analytics . '  '; } 
+           
+
+        ?>
+        <?php  
+        $hideLink = of_get_option('hide_theme_link');
+        if(!$hideLink) {
+            ?> Theme By <a href="http://9iphp.com" title="Specs' Bolg" target="_blank">Specs</a>
+        <?php } ?>
     </div>
     <ul id="jump" class="visible-lg">
         <li><a id="top" href="#top" title="返回顶部" style="display:none;"><i class="fa fa-arrow-circle-up"></i></a></li>
