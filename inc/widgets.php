@@ -2,11 +2,11 @@
 //注册侧边栏小工具
 function specs_widgets_init() {
     // 设置边栏边框
-    $boxcss = of_get_option('data-poststyle');
+    $boxcss = of_get_option('widget_style');
      
 
     register_sidebar( array(
-        'name' => __( 'Home Sidebar', '9iphp' ),
+        'name' => __( '首页工具区', '9iphp' ),
         'id' => 'sidebar_home',
         'description' => __( '首页默认边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.$boxcss.'">',
@@ -15,16 +15,16 @@ function specs_widgets_init() {
         'after_title' => '</h2></div>',
     ) );
 register_sidebar( array(
-        'name' => __( 'Home Sidebar Plus', '9iphp' ),
+        'name' => __( '首页扩展工具区', '9iphp' ),
         'id' => 'sidebar_plus',
         'description' => __( '首页扩展边栏, 当设置只显示边栏时才会显示', '9iphp' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.$boxcss.'">',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.of_get_option('data-poststyle').'">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>'
     ) );
     register_sidebar( array(
-        'name' => __( 'Single Page', '9iphp' ),
+        'name' => __( '文章/页面工具区', '9iphp' ),
         'id' => 'sidebar_single',
         'description' => __( '文章及页面边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.$boxcss.'">',
@@ -35,7 +35,7 @@ register_sidebar( array(
 
     // First footer widget area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'First Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅰ', '9iphp' ),
         'id' => 'first-footer-widget-area',
         'description' => __( 'The first footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -46,7 +46,7 @@ register_sidebar( array(
 
     // Second Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Second Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅱ', '9iphp' ),
         'id' => 'second-footer-widget-area',
         'description' => __( 'The second footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -57,7 +57,7 @@ register_sidebar( array(
 
     // Third Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Third Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅲ', '9iphp' ),
         'id' => 'third-footer-widget-area',
         'description' => __( 'The third footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -68,7 +68,7 @@ register_sidebar( array(
 
     // Fourth Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Fourth Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅳ', '9iphp' ),
         'id' => 'fourth-footer-widget-area',
         'description' => __( 'The fourth footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -76,6 +76,44 @@ register_sidebar( array(
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
+
+    register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅰ', '9iphp' ),
+        'id' => 'first-header-widget-area',
+        'description' => __( 'The first header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+     register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅱ', '9iphp' ),
+        'id' => 'second-header-widget-area',
+        'description' => __( 'The second header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+      register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅲ', '9iphp' ),
+        'id' => 'third-header-widget-area',
+        'description' => __( 'The third header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+    register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅳ', '9iphp' ),
+        'id' => 'fourth-header-widget-area',
+        'description' => __( 'The fourth header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+
 
 }
 add_action( 'widgets_init', 'specs_widgets_init' );

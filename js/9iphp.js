@@ -53,14 +53,14 @@ $(function(){
 	//$("#commentform").addClass('form-horizontal');
 	$("#commentform #submit").addClass('btn btn-danger btn-block');
 	//$("#commentform .form-submit").addClass("col-xs-12");
-	if ($("#main").height() > $("#sidebar").height()) {
-		$('#sidebar').affix({
-			offset: {
-				top: $('#sidebar').offset().top - 50,
-				bottom: $('footer#body-footer').outerHeight(true) + 25
-			}
-		});
-	}
+	// if ($("#main").height() > $("#sidebar").height()) {
+	// 	$('#sidebar').affix({
+	// 		offset: {
+	// 			top: $('#sidebar').offset().top - 50,
+	// 			bottom: $('footer#body-footer').outerHeight(true) + 25
+	// 		}
+	// 	});
+	// }
 });
 //返回顶部
 $(window).scroll(function() {

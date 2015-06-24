@@ -65,14 +65,19 @@ switch (of_get_option('background_mode')) {
 }
 ?>
 <header>
-    <div id="masthead" role="banner" class="hidden-xs">
+
+    <div id="masthead" role="banner" class="hidden-xs"> 
+     <?php 
+        if(!of_get_option('hide_header_title'))
+            { ?>
 		<div class="top-banner">
 			<div class="container">
 				<?php
 				$site_logo = of_get_option('site_logo');
 				if ( !empty( $site_logo ) ) { ?>
 					<a class="brand brand-image" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-						<img src="<?php echo $site_logo; ?>" width="200px" height="50px" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+						<img class="header-logo" src="<?php echo $site_logo; ?>"  alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+
 						<h1 class="hidden-xs"><?php if(of_get_option('show_blogdescription')){ ?>
 							<small><?php bloginfo( 'description' ); ?></small>
 							<?php } ?>
@@ -98,9 +103,54 @@ switch (of_get_option('background_mode')) {
 				</div>
 			</div>
 		</div>
+         <?php } ?>
+<!--header widget -->
+<?php
+if( is_home())
+{
+if (   is_active_sidebar( 'first-header-widget-area'  )
+        && is_active_sidebar( 'second-header-widget-area' )
+        && is_active_sidebar( 'third-header-widget-area'  )
+        && is_active_sidebar( 'fourth-header-widget-area' )
+    ) : ?>
+    <aside class="header-widget row hidden-xs hidden-sm">
+        <div class="first col-md-3 col-xs-12"><?php dynamic_sidebar( 'first-header-widget-area' ); ?></div>
+        <div class="second col-md-3 col-xs-12"><?php dynamic_sidebar( 'second-header-widget-area' ); ?></div>
+        <div class="third col-md-3 col-xs-12"><?php dynamic_sidebar( 'third-header-widget-area' ); ?></div>
+        <div class="fourth col-md-3 col-xs-12"><?php dynamic_sidebar( 'fourth-header-widget-area' ); ?></div>
+    </aside>
+    <?php elseif ( is_active_sidebar( 'first-header-widget-area'  )
+        && is_active_sidebar( 'second-header-widget-area' )
+        && is_active_sidebar( 'third-header-widget-area'  )
+        && ! is_active_sidebar( 'fourth-header-widget-area' )
+    ) : ?>
+    <aside class="header-widget row hidden-xs hidden-sm">
+        <div class="first col-md-4 col-xs-12"><?php dynamic_sidebar( 'first-header-widget-area' ); ?></div>
+        <div class="second col-md-4 col-xs-12"><?php dynamic_sidebar( 'second-header-widget-area' ); ?></div>
+        <div class="third col-md-4 col-xs-12"><?php dynamic_sidebar( 'third-header-widget-area' ); ?></div>
+    </aside>
+    <?php elseif ( is_active_sidebar( 'first-header-widget-area'  )
+        && is_active_sidebar( 'second-header-widget-area' )
+        && ! is_active_sidebar( 'third-header-widget-area'  )
+    ) : ?>
+    <aside class="header-widget row hidden-xs hidden-sm">
+        <div class="first col-md-6 col-xs-12"><?php dynamic_sidebar( 'first-header-widget-area' ); ?></div>
+        <div class="second col-md-6 col-xs-12"><?php dynamic_sidebar( 'second-header-widget-area' ); ?></div>
+    </aside>
+    <?php elseif ( is_active_sidebar( 'first-header-widget-area'  )
+        && ! is_active_sidebar( 'second-header-widget-area' )
+    ) :
+    ?>
+    <aside class="header-widget row hidden-xs hidden-sm">
+        <div class="first col-md-12 col-xs-12"><?php dynamic_sidebar( 'first-header-widget-area' ); ?></div>
+    </aside>
+    <?php endif;} ?> 
+    <!--end header widget -->
+
 	</div>
-    <nav id="nav" class="navbar navbar-default container-fluid" role="navigation">
+    <nav id="nav" class="navbar navbar-default container-fluid" role="navigation" style="z-index:1000;">
         <div class="container">
+        
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -110,15 +160,17 @@ switch (of_get_option('background_mode')) {
 				<a class="navbar-brand visible-xs" href="<?php echo home_url( '/' ); ?>" <?php if($site_logo_mini) echo "style='padding:2px 10px'"; ?>>
 					<?php
 					if ( !empty( $site_logo_mini ) ) {?>
-						<img src="<?php echo $site_logo_mini; ?>" width="150px" height="50px" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+						<img  class="header-logo" src="<?php echo $site_logo_mini; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 					<?php }else{
 						bloginfo( 'name' );
 					}?>
 				</a>
             </div>
+       
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+            <div class="collapse navbar-collapse " id="navbar-collapse">
                 <?php if ( has_nav_menu( 'primary' ) ) {
+
                     wp_nav_menu( array('theme_location' => 'primary','container' => '','container_class' => '','container_id' => '','menu_class' => 'nav navbar-nav','items_wrap' => '<ul class="%2$s">%3$s</ul>','walker' => new Bootstrap_Walker )); //左侧主菜单
                     }else{
                     echo '<ul class="nav navbar-nav">';
@@ -140,6 +192,8 @@ switch (of_get_option('background_mode')) {
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
+
 </header>
-<div class="container">
+<div class="container main_container">
    <section class="row">

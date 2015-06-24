@@ -21,10 +21,13 @@ get_header(); ?>
 			<!--首页幻灯片-->
 			<?php
 				if(is_home()){
-					$postStyle = of_get_option('data-poststyle'); 
+					if (of_get_option('show_slide')) {
+						$postStyle = of_get_option('data-poststyle'); 
 					echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
 					specs_slide();
 					echo '</div>';
+					}
+					
 				}elseif(is_category()){
 			?>
 					<header class=" <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?> archive-header well">

@@ -12,7 +12,7 @@
         && is_active_sidebar( 'third-footer-widget-area'  )
         && is_active_sidebar( 'fourth-footer-widget-area' )
     ) : ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-3 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
         <div class="second col-md-3 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
         <div class="third col-md-3 col-xs-12"><?php dynamic_sidebar( 'third-footer-widget-area' ); ?></div>
@@ -23,7 +23,7 @@
         && is_active_sidebar( 'third-footer-widget-area'  )
         && ! is_active_sidebar( 'fourth-footer-widget-area' )
     ) : ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-4 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
         <div class="second col-md-4 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
         <div class="third col-md-4 col-xs-12"><?php dynamic_sidebar( 'third-footer-widget-area' ); ?></div>
@@ -32,7 +32,7 @@
         && is_active_sidebar( 'second-footer-widget-area' )
         && ! is_active_sidebar( 'third-footer-widget-area'  )
     ) : ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-6 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
         <div class="second col-md-6 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
     </aside>
@@ -40,7 +40,7 @@
         && ! is_active_sidebar( 'second-footer-widget-area' )
     ) :
     ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-12 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
     </aside>
     <?php endif; ?>

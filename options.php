@@ -154,8 +154,8 @@ function optionsframework_options() {
 			)
 	);
 $options[] = array(
-		'name' => '使用扩展边栏替代文章栏',
-		'desc' => '选中此项，添加扩展边栏替代文章栏',
+		'name' => '使用扩展工具区替代文章显示区',
+		'desc' => '选中此项，在主页使用扩展工具区替代文章显示区',
 		'id' => 'only_sider',
 		'std' => '0',
 		'type' => 'checkbox');
@@ -180,16 +180,13 @@ $options[] = array(
 		'std' => '0',
 		'type' => 'checkbox');
 	$options[] = array(
-		'name' => '文章 && 页面',
-		'type' => 'heading');
-		$options[] = array(
-		'name' => '文章边框样式',
-		'desc' => '',
-		'id' => 'data-poststyle',
-		'std' => 'boxcss_1',
-		'type' => 'select',
-		'class' => 'mini', //mini, tiny, small
-		'options' => array(
+		'name' => '隐藏页眉标题栏',
+		'desc' => '选中此项，隐藏页眉标题栏',
+		'id' => 'hide_header_title',
+		'std' => '0',
+		'type' => 'checkbox');
+	$tmpOptions = array(
+		'boxcss_none' => '默认',
 		'boxcss_1' => '白色',
 		'boxcss_5' => '白色2',
 		'boxcss_7' => '白色3',
@@ -200,10 +197,10 @@ $options[] = array(
 		'boxcss_16' => '白色8',
 		'boxcss_17' => '白色9',
 		'boxcss_21' => '白色10',
-		'boxcss_6' => '白色11',
-		
+		'boxcss_6' => '白色11',		
 		'boxcss_2' => '白色12',
 		'boxcss_24' => '白色13',
+		'boxcss_25' => '白色14',
 		'boxcss_3' => '白色-半透明',
 		'boxcss_9' => '白色-层叠',
 		'boxcss_20' => '白色-层叠-半透明',
@@ -215,9 +212,39 @@ $options[] = array(
 		'boxcss_18' => '棕色',
 		'boxcss_19' => '反色',	
 		'boxcss_23' => '模糊'
-		)
-
+		);
+	$options[] = array(
+		'name' => '文章边框样式',
+		'desc' => '',
+		'id' => 'data-poststyle',
+		'std' => 'boxcss_none',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $tmpOptions
 	);
+	$options[] = array(
+		'name' => '边栏边框样式',
+		'desc' => '',
+		'id' => 'widget_style',
+		'std' => 'boxcss_none',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $tmpOptions
+	);
+$options[] = array(
+		'name' => '菜单边框样式',
+		'desc' => '',
+		'id' => 'menu_style',
+		'std' => 'boxcss_none',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $tmpOptions
+	);
+
+	$options[] = array(
+		'name' => '文章 && 页面',
+		'type' => 'heading');
+
 	$options[] = array(
 		'name' => '热门文章',
 		'desc' => '文章评论数大于等于 N 为热门文章',

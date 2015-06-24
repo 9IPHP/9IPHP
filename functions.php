@@ -34,7 +34,8 @@ class Bootstrap_Walker extends Walker_Nav_Menu
         $tabs = str_repeat("\t", $depth);
         // If we are about to start the first submenu, we need to give it a dropdown-menu class
         if ($depth == 0 || $depth == 1) { //really, level-1 or level-2, because $depth is misleading here (see note above)
-            $output .= "\n{$tabs}<ul class=\"dropdown-menu\">\n";
+          
+            $output .= "\n{$tabs}<ul class=\"dropdown-menu ".of_get_option('menu_style')."\" >\n ";
         } else {
             $output .= "\n{$tabs}<ul>\n";
         }
@@ -69,7 +70,7 @@ class Bootstrap_Walker extends Walker_Nav_Menu
         /* This is the stock Wordpress code that builds the <li> with all of its attributes */
         $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         $class_names = ' class="' . esc_attr( $class_names ) . '"';
-        $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+        $output .= $indent . '<li " id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
@@ -138,10 +139,13 @@ class themeslug_walker_nav_menu extends Walker_Nav_Menu {
         // passed classes
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+
+        
         // build html
         $output .= $indent . '<li class="' . $class_names . '">';
 
         // link attributes
+
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
@@ -172,7 +176,7 @@ function add_menu_parent_class( $items ) {
 	foreach ( $items as $item ) {
 		if ( in_array( $item->ID, $parents ) ) {
 			$item->classes[] = 'dropdown';
-			$item->title = $item->title.'<b class="caret"></b>';
+			$item->title = $item->title.'<b" class="caret"></b>';
 			$item->a_class = 'dropdown-toggle';
 			//$item->data_toggle = 'dropdown';
 		}
