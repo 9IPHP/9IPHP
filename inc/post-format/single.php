@@ -1,4 +1,4 @@
-<article class="<?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?> well clearfix entry-common " id="post-<?php echo $post->ID?>">
+<article class="<?php echo of_get_option('data-poststyle');?> well clearfix entry-common " id="post-<?php echo $post->ID?>">
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() ) {?>
 			<div class="entry-cover hidden-xs">

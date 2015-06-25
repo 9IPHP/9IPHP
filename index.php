@@ -16,21 +16,22 @@ get_header(); ?>
 			</div>
 		</aside>
 		<?php } ?>
-		<?php if(!$only_sider){?>
+		
         <section id='main' class='<?php echo ($layout == 'single') ? 'col-md-12' : 'col-md-8'; ?>' >
 			<!--首页幻灯片-->
 			<?php
 				if(is_home()){
+
 					if (of_get_option('show_slide')) {
 						$postStyle = of_get_option('data-poststyle'); 
-					echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
-					specs_slide();
-					echo '</div>';
+						echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
+						specs_slide();
+						echo '</div>';
 					}
 					
 				}elseif(is_category()){
 			?>
-					<header class=" <?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?> archive-header well">
+					<header class=" <?php echo of_get_option('data-poststyle');?> archive-header well">
 						<h1 class="archive-title">
 							分类目录：<?php echo single_cat_title( '', false );?>
 						</h1>
@@ -45,7 +46,7 @@ get_header(); ?>
 			<?php
 				}elseif(is_author()){
 			?>
-					<header class="author-header well clearfix">
+					<header class="author-header well clearfix <?php echo of_get_option('data-poststyle');?>">
 						<div class="pull-left author-avatar">
 							<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 50 ) ); ?>
 						</div>
@@ -92,45 +93,48 @@ get_header(); ?>
 			<?php
 				}
 			?>
-			<!--首页文章列表模块-->
-            <?php
-				if ( have_posts() ) {
-					while ( have_posts() ){
-						the_post();
-						get_template_part( 'inc/post-format/content', get_post_format() );
-						$ads_show_pos = of_get_option('ads_show_pos', false);
-						$ads = of_get_option('ads_index_list', false);
-						$ads_pos = of_get_option('ads_index_list_pos',1);
-						if($ads_show_pos['index'] && $ads){
-							if ($wp_query->current_post == $ads_pos ){
-								echo '<div class="ads_index_list">' . $ads . '</div>';
-							}
-						}
-					}
-				}else{
-			?>
-			<article class="<?php $postStyle = of_get_option('data-poststyle'); echo $postStyle;?> alert alert-warning "><?php _e('非常抱歉，没有相关文章。'); ?></article>
-			<?php } ?>
-			<!--首页文章列表模块-->
-			<!--分页-->
-			<?php specs_pages(3);?>
+			<?php if(!$only_sider){?>
+						<!--首页文章列表模块-->
+			            <?php
+							if ( have_posts() ) {
+								while ( have_posts() ){
+									the_post();
+									get_template_part( 'inc/post-format/content', get_post_format() );
+									$ads_show_pos = of_get_option('ads_show_pos', false);
+									$ads = of_get_option('ads_index_list', false);
+									$ads_pos = of_get_option('ads_index_list_pos',1);
+									if($ads_show_pos['index'] && $ads){
+										if ($wp_query->current_post == $ads_pos ){
+											echo '<div class="ads_index_list">' . $ads . '</div>';
+										}
+									}
+								}
+							}else{
+						?>
+						<article class="<?php echo of_get_option('data-poststyle');?> alert alert-warning "><?php _e('非常抱歉，没有相关文章。'); ?></article>
+						<?php } ?>
+						<!--首页文章列表模块-->
+						<!--分页-->
+						<?php specs_pages(3);?>
+			        <?php }else{
+			        ?>
+						<section class="col-md-8 ">
+							<?php
+								if(is_home()){
+									$postStyle = of_get_option('data-poststyle'); 
+									echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
+									specs_slide();
+									echo '</div>';
+								}
+							?>
+							<div id="main"  class="row-fluid">
+								<?php dynamic_sidebar( 'sidebar_plus'); ?>		
+							</div> 
+						</section>
+			       <?php } ?>
+					
         </section>
-        <?php }
-        else{ ?>
-       
-		<section class="col-md-8 ">
-		<?php
-				if(is_home()){
-					$postStyle = of_get_option('data-poststyle'); 
-					echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
-					specs_slide();
-					echo '</div>';
-				} ?>
-			<div id="main"  class="row-fluid">
-				<?php dynamic_sidebar( 'sidebar_plus'); ?>
-			</div>
-		</section>
-        <?php } ?>
+        
         <!--侧边栏-->
 		<?php if($layout == 'right_side'){ ?>
 		<aside class="col-md-4 hidden-xs hidden-sm">

@@ -1,6 +1,6 @@
 ﻿/*
 # Copyright (C) 2014 9IPHP.COM
-Theme Name: 9IPHP - 改
+Theme Name: 9IPHP
 Theme URI: http://9iphp.com
 Author: Specs
 Author URI: http://9iphp.com/
@@ -1212,7 +1212,6 @@ footer#body-footer a:hover {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
     padding: 19px;
     position: relative;
-    
 }
  
 .boxcss_7{
@@ -1247,6 +1246,7 @@ footer#body-footer a:hover {
     -moz-box-shadow:0 0 60px 10px rgba(0, 0, 0, .1) inset, 0 5px 0 -4px #fff, 0 5px 0 -3px #c2c0b8, 0 11px 0 -8px #fff, 0 11px 0 -7px #c2c0b8, 0 17px 0 -12px #fff, 0 17px 0 -11px #c2c0b8;
     box-shadow:0 0 60px 10px rgba(0, 0, 0, .1) inset, 0 5px 0 -4px #fff, 0 5px 0 -3px #c2c0b8, 0 11px 0 -8px #fff, 0 11px 0 -7px #c2c0b8, 0 17px 0 -12px #fff, 0 17px 0 -11px #c2c0b8;
     margin:10px;
+
 }
  
 
@@ -1465,10 +1465,11 @@ box-shadow: 0 1px 1px rgba(0,0,0,.04);
 background: #fff;
 border-radius: 50px;
 margin:10px;
+padding: 10px;
 }
 .boxcss_25{
 	background: rgba(255, 254, 245, 0.8);
-	
+	padding: 10px;
 	border-radius: 10px 10px 10px 10px;	
 	box-shadow: 0 0px 7px rgba(0, 0, 0, 0.3), 0 0 60px rgba(0, 0, 0, 0.15) inset;
 	margin:10px;
