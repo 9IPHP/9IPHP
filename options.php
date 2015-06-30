@@ -107,6 +107,25 @@ function optionsframework_options() {
 		'class' => 'background_image',
 		'type' => 'checkbox');
 	$options[] = array(
+		'name' => '模糊背景',
+		'desc' =>'对背景应用模糊效果的等级(对某些浏览器可能无效)',
+		'id' => 'show_blur_bg',
+		'std' => '0',
+		'class' => 'background_image',
+		'type' => 'select',
+		'class' => 'mini',
+		'options'=>array(
+			'0'=>'不使用',
+			'1px'=>'1px',
+			'5px'=>'5px',
+			'10px'=>'10px',
+			'20px'=>'20px',
+			'30px'=>'30px',
+			'40px'=>'40px',
+			'50px'=>'50px'
+			)
+		);
+	$options[] = array(
 		'name' => '选择一个背景图案',
 		'desc' => '从列表选择一个背景图案或自己上传一张',
 		'id' => "background_pattern",

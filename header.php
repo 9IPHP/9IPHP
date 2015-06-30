@@ -50,7 +50,11 @@
 switch (of_get_option('background_mode')) {
 	case 'image':
 		if(of_get_option('background_image')){
- echo '<div style="position: fixed; z-index: -1; width: 100%; height: 100%; left: 0; top: 0; background-repeat: no-repeat;background-size: cover; background-image: url('.of_get_option('background_image').');">'.(of_get_option('show_stripe') ? '<div id="stripe"></div>' : ''). '</div>';
+            $isShowBlur = of_get_option('show_blur_bg');
+            if ($isShowBlur) {
+                $show_blur_bg = "-webkit-filter:blur(".$isShowBlur.");";
+            }
+ echo '<div style="position: fixed; z-index: -1; width: 100%; height: 100%; left: 0; top: 0; background-repeat: no-repeat;background-size: cover; background-image: url('.of_get_option('background_image').');'.$show_blur_bg.'" >'.(of_get_option('show_stripe') ? '<div id="stripe"></div>' : ''). '</div>';
 
 			//echo '<div class="specs_background">'.(of_get_option('show_stripe') ? '<div id="stripe"></div>' : ''). '<img src="'.of_get_option('background_image').'"></div>';
 		}

@@ -65,7 +65,7 @@ get_header(); ?>
 			<?php
 				}elseif(is_tag()){
 			?>
-					<header class="archive-header well">
+					<header class=" <?php echo of_get_option('data-poststyle');?> archive-header well">
 						<h1 class="archive-title">
 							标签目录：<?php echo single_cat_title( '', false );?>
 						</h1>
@@ -78,7 +78,7 @@ get_header(); ?>
 			<?php
 				}elseif(is_search()){
 			?>
-					<header class="archive-header well">
+					<header class="<?php echo of_get_option('data-poststyle');?> archive-header well">
 						<h1 class="archive-title">
 							搜索结果：<?php the_search_query(); ?>
 						</h1>
