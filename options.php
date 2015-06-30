@@ -211,7 +211,8 @@ $options[] = array(
 		'boxcss_15' => '棱台',
 		'boxcss_18' => '棕色',
 		'boxcss_19' => '反色',	
-		'boxcss_23' => '模糊'
+		'boxcss_23' => '模糊',
+		'boxcss_26' => '黑色'
 		);
 	$options[] = array(
 		'name' => '文章边框样式',

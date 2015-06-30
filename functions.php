@@ -33,12 +33,13 @@ class Bootstrap_Walker extends Walker_Nav_Menu
     {
         $tabs = str_repeat("\t", $depth);
         // If we are about to start the first submenu, we need to give it a dropdown-menu class
-        if ($depth == 0 || $depth == 1) { //really, level-1 or level-2, because $depth is misleading here (see note above)
+        // if ($depth == 0 || $depth == 1) { //really, level-1 or level-2, because $depth is misleading here (see note above)
           
-            $output .= "\n{$tabs}<ul class=\"dropdown-menu ".of_get_option('menu_style')."\" >\n ";
-        } else {
-            $output .= "\n{$tabs}<ul>\n";
-        }
+        //     $output .= "\n{$tabs}<ul class=\"dropdown-menu ".of_get_option('menu_style')."\" >\n ";
+        // } else {
+        //     $output .= "\n{$tabs}<ul>\n";
+        // }
+         $output .=  "\n{$tabs}<ul class=\"dropdown-menu ".of_get_option('menu_style')."\" >\n ";
     }
     function end_lvl( &$output, $depth = 0, $args = array() )
     {

@@ -64,7 +64,7 @@ switch (of_get_option('background_mode')) {
 	break;
 }
 ?>
-<header>
+<header style="top:0px;">
 
     <div id="masthead" role="banner" class="hidden-xs"> 
      <?php 
@@ -148,7 +148,7 @@ if (   is_active_sidebar( 'first-header-widget-area'  )
     <!--end header widget -->
 
 	</div>
-    <nav id="nav" class="navbar navbar-default container-fluid" role="navigation" style="z-index:1000;">
+    <nav id="nav" class="navbar navbar-default container-fluid <?php echo of_get_option('menu_style')?>" role="navigation" style="z-index:1000; margin: 0px; border-radius: 0px; padding: 0px;">
         <div class="container">
         
             <!-- Brand and toggle get grouped for better mobile display -->

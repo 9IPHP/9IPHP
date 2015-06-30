@@ -10,13 +10,31 @@ $(function(){
 	};
 	//导航二级菜单
 	function dropDown() {
-		var dropDownLi = jQuery('li.dropdown');
+		// var dropDownLi = jQuery('li.dropdown');
 
+		// dropDownLi.mouseover(function() {
+		// 	jQuery(this).addClass('open').stop(true, true).fadeIn('fast');
+		// }).mouseout(function() {
+		// 	jQuery(this).stop(true, true).delay(150).fadeOut('fast').removeClass('open');
+		// });
+
+		var dropDownLi = jQuery('li.dropdown');
 		dropDownLi.mouseover(function() {
+			var subMenu = jQuery(this).find('ul').first();
+			if (!jQuery(this).parent().hasClass('nav')) {
+					subMenu.css('left',jQuery(this).width() - 10);
+					subMenu.css('top',3);
+			};
+			
+			subMenu.stop(true, true).fadeIn('fast');
 			jQuery(this).addClass('open');
 		}).mouseout(function() {
+			jQuery(this).find('ul').first().stop(true, true).delay(150).fadeOut('fast');
 			jQuery(this).removeClass('open');
 		});
+
+
+
 	}
 	$("#top").click(function() {
 		$('body,html').animate({
@@ -65,8 +83,8 @@ $(function(){
 //返回顶部
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 100) {
-		$('#top').show();
+		$('#top').fadeIn();
 	} else {
-		$('#top').hide();
+		$('#top').fadeOut();
 	}
 });
