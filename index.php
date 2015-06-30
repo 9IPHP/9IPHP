@@ -28,6 +28,9 @@ get_header(); ?>
 						specs_slide();
 						echo '</div>';
 					}
+
+
+
 					
 				}elseif(is_category()){
 			?>
@@ -93,8 +96,23 @@ get_header(); ?>
 			<?php
 				}
 			?>
-			<?php if(!$only_sider){?>
-						<!--首页文章列表模块-->
+			<?php if(is_home() && $only_sider){?>
+						<section >
+							<?php
+								if(is_home()){
+									$postStyle = of_get_option('data-poststyle'); 
+									echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
+									specs_slide();
+									echo '</div>';
+								}
+							?>
+							<div id="main"  class="row-fluid">
+								<?php dynamic_sidebar( 'sidebar_plus'); ?>		
+							</div> 
+						</section>
+			        <?php }else{
+			        ?>
+			        <!--首页文章列表模块-->
 			            <?php
 							if ( have_posts() ) {
 								while ( have_posts() ){
@@ -116,21 +134,7 @@ get_header(); ?>
 						<!--首页文章列表模块-->
 						<!--分页-->
 						<?php specs_pages(3);?>
-			        <?php }else{
-			        ?>
-						<section >
-							<?php
-								if(is_home()){
-									$postStyle = of_get_option('data-poststyle'); 
-									echo '<div class="'.$postStyle.'"  style="padding:0px;overflow-x: hidden;overflow-y: hidden;">';
-									specs_slide();
-									echo '</div>';
-								}
-							?>
-							<div id="main"  class="row-fluid">
-								<?php dynamic_sidebar( 'sidebar_plus'); ?>		
-							</div> 
-						</section>
+						
 			       <?php } ?>
 					
         </section>
