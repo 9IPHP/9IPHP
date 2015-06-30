@@ -37,12 +37,12 @@
     <?php if(is_404()){ ?>
         <meta http-equiv='refresh' content=5;URL="<?php bloginfo('url'); ?>">
     <?php } ?>
+	<?php wp_head(); ?>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
       <script src="<?php echo get_template_directory_uri(); ?>/js/respond.min.js"></script>
     <![endif]-->
-	<?php wp_head(); ?>
 </head>
 <body>
 <?php
