@@ -118,7 +118,7 @@ get_header(); ?>
 						<?php specs_pages(3);?>
 			        <?php }else{
 			        ?>
-						<section class="col-md-8 ">
+						<section >
 							<?php
 								if(is_home()){
 									$postStyle = of_get_option('data-poststyle'); 

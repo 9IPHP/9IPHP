@@ -1482,11 +1482,12 @@ padding: 10px;
 	margin: 10px;
 	padding: 10px;
 	box-shadow: 0 5px 5px 0px rgba(0,0,0,.3);
-	background: #393939!important;
+	background-color: #393939;
 	border: 0px;
-	font-family:Consolas, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', 'Hiragino Sans GB', '微软雅黑', 'WenQuanYi Micro Hei', STHeiti, SimSun, sans-serif;
-	color:#ccc;
+	font-family: Consolas, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', 'Hiragino Sans GB', '微软雅黑', 'WenQuanYi Micro Hei', STHeiti, SimSun, sans-serif;
+	color: #ccc;
 	opacity: 1;
+	
 }
 
 .boxcss_26 .open>a
