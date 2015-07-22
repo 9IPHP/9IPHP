@@ -4,8 +4,8 @@
  * Url: http://9iphp.com/
  */
 $(function(){
-	$("a").tooltip();
 	if (jQuery(window).width() > 768) {
+		$("a").tooltip();
 		dropDown();
 	};
 	//导航二级菜单
