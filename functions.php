@@ -991,6 +991,7 @@ function ajax_comment_page_nav(){
     if( 'desc' != get_option('comment_order') ){
         $comments = array_reverse($comments);
     }
+    $max_page = get_comment_pages_count($comments);
     $wp_query->is_singular = true;
     $baseLink = '';
     if ($wp_rewrite->using_permalinks()) {
@@ -1000,7 +1001,7 @@ function ajax_comment_page_nav(){
     wp_list_comments('callback=specs_comment&max_depth=10000&type=comment&avatar_size=50&page=' . $pageid . '&per_page=' . get_option('comments_per_page'), $comments);//注意修改mycomment这个callback
     echo '</ul>';
     echo '<p class="commentnav text-center" data-post-id="'.$postid.'">';
-    paginate_comments_links('current=' . $pageid . '&prev_text=«&next_text=»');
+    paginate_comments_links('current=' . $pageid . '&prev_text=«&next_text=»&total='.$max_page);
     echo '</p>';
     die;
 }
