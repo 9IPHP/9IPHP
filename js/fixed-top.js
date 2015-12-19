@@ -12,7 +12,8 @@ if(jQuery(window).width() > 768){
 			didScroll = false;
 			y = jQuery(window).scrollTop();
 			//alert(y);
-			if(y > 75){
+			//alert($("#masthead").height());
+			if(y > $("#masthead").height()){
 				jQuery('#nav').addClass('fixed');
 			}else{
 				jQuery('#nav').removeClass('fixed');

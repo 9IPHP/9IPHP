@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 /**
  * A unique identifier is defined to store the options in the database and reference them from the theme.
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
@@ -103,6 +107,25 @@ function optionsframework_options() {
 		'class' => 'background_image',
 		'type' => 'checkbox');
 	$options[] = array(
+		'name' => '模糊背景',
+		'desc' =>'对背景应用模糊效果的等级(对某些浏览器可能无效)',
+		'id' => 'show_blur_bg',
+		'std' => '0',
+		'class' => 'background_image',
+		'type' => 'select',
+		'class' => 'mini',
+		'options'=>array(
+			'0'=>'不使用',
+			'1px'=>'1px',
+			'5px'=>'5px',
+			'10px'=>'10px',
+			'20px'=>'20px',
+			'30px'=>'30px',
+			'40px'=>'40px',
+			'50px'=>'50px'
+			)
+		);
+	$options[] = array(
 		'name' => '选择一个背景图案',
 		'desc' => '从列表选择一个背景图案或自己上传一张',
 		'id' => "background_pattern",
@@ -139,24 +162,109 @@ function optionsframework_options() {
 		'type' => 'color' );
 	$options[] = array(
 		'name' => '博客整体布局',
-		'desc' => '选择你喜欢的整体布局,显示左边栏，右边栏或者不显示任何边栏。默认:显示右边栏',
+		'desc' => '选择你喜欢的整体布局, 不显示任何边栏, 显示左边栏，右边栏。默认:显示右边栏',
 		'id' => "side_bar",
 		'std' => "right_side",
 		'type' => "images",
 		'options' => array(
 			'single' => $imagepath . '1col.png',
 			'left_side' => $imagepath . '2cl.png',
-			'right_side' => $imagepath . '2cr.png')
+			'right_side' => $imagepath . '2cr.png',
+			)
 	);
+$options[] = array(
+		'name' => '使用扩展工具区替代文章显示区',
+		'desc' => '选中此项，在主页使用扩展工具区替代文章显示区',
+		'id' => 'only_sider',
+		'std' => '0',
+		'type' => 'checkbox');
+
 	$options[] = array(
 		'name' => '禁用菜单固定在顶部',
 		'desc' => '选中此项，禁用菜单固定在顶部',
 		'id' => 'disable_fixed_header',
 		'std' => '0',
 		'type' => 'checkbox');
+	
+	$options[] = array(
+		'name' => '隐藏搜索部件',
+		'desc' => '选中此项，隐藏搜索部件',
+		'id' => 'hide_search_box',
+		'std' => '0',
+		'type' => 'checkbox');
+	$options[] = array(
+		'name' => '隐藏主题信息',
+		'desc' => '选中此项，隐藏主题作者链接',
+		'id' => 'hide_theme_link',
+		'std' => '0',
+		'type' => 'checkbox');
+	$options[] = array(
+		'name' => '隐藏页眉标题栏',
+		'desc' => '选中此项，隐藏页眉标题栏',
+		'id' => 'hide_header_title',
+		'std' => '0',
+		'type' => 'checkbox');
+	$tmpOptions = array(
+		'boxcss_none' => '默认',
+		'boxcss_1' => '白色',
+		'boxcss_5' => '白色2',
+		'boxcss_7' => '白色3',
+		'boxcss_8' => '白色4',
+		'boxcss_10' => '白色5',
+		'boxcss_11' => '白色6',
+		'boxcss_12' => '白色7',
+		'boxcss_16' => '白色8',
+		'boxcss_17' => '白色9',
+		'boxcss_21' => '白色10',
+		'boxcss_6' => '白色11',		
+		'boxcss_2' => '白色12',
+		'boxcss_24' => '白色13',
+		'boxcss_25' => '白色14',
+		'boxcss_3' => '白色-半透明',
+		'boxcss_9' => '白色-层叠',
+		'boxcss_20' => '白色-层叠-半透明',
+		'boxcss_4' => '灰色',
+		'boxcss_13' => '灰色2',
+		'boxcss_22' => '灰色3',
+		'boxcss_14' => '条纹',
+		'boxcss_15' => '棱台',
+		'boxcss_18' => '棕色',
+		'boxcss_19' => '反色',	
+		'boxcss_23' => '模糊',
+		'boxcss_26' => '黑色'
+		);
+	$options[] = array(
+		'name' => '文章边框样式',
+		'desc' => '',
+		'id' => 'data-poststyle',
+		'std' => 'boxcss_none',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $tmpOptions
+	);
+	$options[] = array(
+		'name' => '边栏边框样式',
+		'desc' => '',
+		'id' => 'widget_style',
+		'std' => 'boxcss_none',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $tmpOptions
+	);
+$options[] = array(
+		'name' => '菜单边框样式',
+		'desc' => '',
+		'id' => 'menu_style',
+		'std' => 'boxcss_none',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $tmpOptions
+	);
+
 	$options[] = array(
 		'name' => '文章 && 页面',
 		'type' => 'heading');
+
 	$options[] = array(
 		'name' => '热门文章',
 		'desc' => '文章评论数大于等于 N 为热门文章',

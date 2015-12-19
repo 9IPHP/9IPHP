@@ -7,12 +7,12 @@
      *
      * If none of the sidebars have widgets, then let's bail early.
      */
-    /*if (   is_active_sidebar( 'first-footer-widget-area'  )
+    if (   is_active_sidebar( 'first-footer-widget-area'  )
         && is_active_sidebar( 'second-footer-widget-area' )
         && is_active_sidebar( 'third-footer-widget-area'  )
         && is_active_sidebar( 'fourth-footer-widget-area' )
     ) : ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-3 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
         <div class="second col-md-3 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
         <div class="third col-md-3 col-xs-12"><?php dynamic_sidebar( 'third-footer-widget-area' ); ?></div>
@@ -23,7 +23,7 @@
         && is_active_sidebar( 'third-footer-widget-area'  )
         && ! is_active_sidebar( 'fourth-footer-widget-area' )
     ) : ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-4 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
         <div class="second col-md-4 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
         <div class="third col-md-4 col-xs-12"><?php dynamic_sidebar( 'third-footer-widget-area' ); ?></div>
@@ -32,7 +32,7 @@
         && is_active_sidebar( 'second-footer-widget-area' )
         && ! is_active_sidebar( 'third-footer-widget-area'  )
     ) : ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-6 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
         <div class="second col-md-6 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
     </aside>
@@ -40,14 +40,24 @@
         && ! is_active_sidebar( 'second-footer-widget-area' )
     ) :
     ?>
-    <aside class="footer-widget row">
+    <aside class="footer-widget row hidden-xs hidden-sm">
         <div class="first col-md-12 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
     </aside>
-    <?php endif; */?>
-    <div  class="container clearfix bottomcp">
-        Copyright © 2014 <?php bloginfo('name'); ?> |
-        <?php $site_analytics = of_get_option('site_analytics', false); if($site_analytics){ echo (strpos($site_analytics, '<script') === false) ? '<script>'.$site_analytics.'</script> | ' : $site_analytics . ' | '; } ?>
-        Theme By <a href="http://9iphp.com" title="Specs' Bolg" target="_blank">Specs</a>
+    <?php endif; ?>
+
+   
+        <?php  
+        $hideLink = of_get_option('hide_theme_link');
+        if(!$hideLink) {
+            ?> <div  class="container clearfix bottomcp" style="padding-top: 25px;padding-bottom: 10px;">
+        Copyright © 2015 <?php bloginfo('name'); ?> <br>
+        <?php 
+            $site_analytics = of_get_option('site_analytics', false);
+            if($site_analytics){ echo (strpos($site_analytics, '<script') === false) ? '<script>'.$site_analytics.'</script> ' : $site_analytics . '  '; } 
+           
+
+        ?> Theme By <a href="http://9iphp.com" title="Specs' Bolg" target="_blank">Specs</a>
+        <?php } ?>
     </div>
     <ul id="jump" class="visible-lg">
         <li><a id="top" href="#top" title="返回顶部" style="display:none;"><i class="fa fa-arrow-circle-up"></i></a></li>

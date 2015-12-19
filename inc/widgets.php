@@ -1,29 +1,41 @@
 <?php
 //注册侧边栏小工具
 function specs_widgets_init() {
+    // 设置边栏边框
+    $boxcss = of_get_option('widget_style');
+     
+
     register_sidebar( array(
-        'name' => __( 'Home Sidebar', '9iphp' ),
+        'name' => __( '首页工具区', '9iphp' ),
         'id' => 'sidebar_home',
         'description' => __( '首页默认边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.$boxcss.'">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
-
+register_sidebar( array(
+        'name' => __( '首页扩展工具区', '9iphp' ),
+        'id' => 'sidebar_plus',
+        'description' => __( '首页扩展边栏, 当设置只显示边栏时才会显示', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.of_get_option('data-poststyle').'">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>'
+    ) );
     register_sidebar( array(
-        'name' => __( 'Single Page', '9iphp' ),
+        'name' => __( '文章/页面工具区', '9iphp' ),
         'id' => 'sidebar_single',
         'description' => __( '文章及页面边栏,“9IPHP-文章”小工具需要放在最下面', '9iphp' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix">',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs clearfix '.$boxcss.'">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
     ) );
 
     // First footer widget area, located in the footer. Empty by default.
-    /*register_sidebar( array(
-        'name' => __( 'First Footer Widget Area', '9iphp' ),
+    register_sidebar( array(
+        'name' => __( '页脚工具区 - Ⅰ', '9iphp' ),
         'id' => 'first-footer-widget-area',
         'description' => __( 'The first footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -34,7 +46,7 @@ function specs_widgets_init() {
 
     // Second Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Second Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅱ', '9iphp' ),
         'id' => 'second-footer-widget-area',
         'description' => __( 'The second footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -45,7 +57,7 @@ function specs_widgets_init() {
 
     // Third Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Third Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅲ', '9iphp' ),
         'id' => 'third-footer-widget-area',
         'description' => __( 'The third footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
@@ -56,14 +68,52 @@ function specs_widgets_init() {
 
     // Fourth Footer Widget Area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Fourth Footer Widget Area', '9iphp' ),
+        'name' => __( '页脚工具区 - Ⅳ', '9iphp' ),
         'id' => 'fourth-footer-widget-area',
         'description' => __( 'The fourth footer widget area', '9iphp' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
         'after_widget' => '</aside>',
         'before_title' => '<div class="panel-heading"><h2>',
         'after_title' => '</h2></div>',
-    ) );*/
+    ) );
+
+    register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅰ', '9iphp' ),
+        'id' => 'first-header-widget-area',
+        'description' => __( 'The first header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+     register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅱ', '9iphp' ),
+        'id' => 'second-header-widget-area',
+        'description' => __( 'The second header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+      register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅲ', '9iphp' ),
+        'id' => 'third-header-widget-area',
+        'description' => __( 'The third header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+    register_sidebar( array(
+        'name' => __( '首页页眉工具区 - Ⅳ', '9iphp' ),
+        'id' => 'fourth-header-widget-area',
+        'description' => __( 'The fourth header widget area', '9iphp' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s panel panel-specs">',
+        'after_widget' => '</aside>',
+        'before_title' => '<div class="panel-heading"><h2>',
+        'after_title' => '</h2></div>',
+    ) );
+
 
 }
 add_action( 'widgets_init', 'specs_widgets_init' );
@@ -75,12 +125,12 @@ function remove_default_widget() {
 //	unregister_widget('WP_Widget_Tag_Cloud');//移除标签云
 //	unregister_widget('WP_Widget_Text');//移除文本框
 //	unregister_widget('WP_Widget_Archives');//移除文章归档
-	unregister_widget('WP_Widget_RSS');//移除RSS
+//	unregister_widget('WP_Widget_RSS');//移除RSS
 //	unregister_widget('WP_Nav_Menu_Widget');//移除菜单
 //	unregister_widget('WP_Widget_Pages');//移除页面
 //	unregister_widget('WP_Widget_Calendar');//移除日历
 //    unregister_widget('WP_Widget_Categories');//移除分类目录
-    unregister_widget('WP_Widget_Search');//移除搜索
+//    unregister_widget('WP_Widget_Search');//移除搜索
 }
 add_action( 'widgets_init', 'remove_default_widget' );
 
@@ -529,7 +579,10 @@ class specs_tj extends WP_Widget {
 }
 
 
+
+
 function specs_register_widgets(){
+
 	register_widget('specs_widget_ad');  //边栏广告
     register_widget('specs_widget_notice');  //边栏公告
     register_widget('specs_widget_recent_comments'); //最新评论
@@ -537,6 +590,8 @@ function specs_register_widgets(){
     register_widget('specs_widget_posts'); //热门文章、最新文章、随机文章
 	register_widget('specs_recommend');  //每日推荐
 	register_widget('specs_tj');  //站点统计
+    
+
 }
 add_action('widgets_init','specs_register_widgets');
 ?>
