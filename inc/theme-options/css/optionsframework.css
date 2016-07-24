@@ -8,6 +8,8 @@
 	cursor: default;
 	background-color: #f1f1f1;
 	border-bottom: 1px solid #ddd;
+	margin-top: 0;
+	padding: 10px 15px;
 }
 #optionsframework p {
 	margin-bottom:0;

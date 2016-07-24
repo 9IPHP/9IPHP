@@ -155,6 +155,12 @@ function optionsframework_options() {
 		'std' => '0',
 		'type' => 'checkbox');
 	$options[] = array(
+		'name' => '禁用谷歌字体',
+		'desc' => '选中此项，禁用谷歌字体',
+		'id' => 'disable_google_font',
+		'std' => '0',
+		'type' => 'checkbox');
+	$options[] = array(
 		'name' => '文章 && 页面',
 		'type' => 'heading');
 	$options[] = array(

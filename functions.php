@@ -6,7 +6,9 @@ require_once(TEMPLATEPATH . '/inc/widgets.php');
 
 
 require_once(TEMPLATEPATH . '/inc/theme-options.php');
-
+if (of_get_option('disable_google_font')) {
+    require_once(TEMPLATEPATH . '/inc/disable-google-fonts.php');
+}
 //特色图片支持
 add_theme_support( 'post-thumbnails' );
 /*  Add support for the multiple Post Formats  */
