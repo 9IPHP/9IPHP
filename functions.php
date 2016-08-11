@@ -377,6 +377,7 @@ function specs_latest_comments_list($list_number=5, $avatar_size=32, $cut_length
 	//echo $sql;
 	$comments = $wpdb->get_results($sql);
 
+    $output = '';
 	foreach ($comments as $comment) {
 	  $output .= "\n<a class=\"list-group-item\" href=\"" . get_the_permalink($comment->comment_post_ID) . "#comments\" title=\"发表在 " .$comment->post_title . "\">".get_avatar( $comment, $avatar_size )." " . convert_smilies(specs_string_cut(strip_tags($comment->com_excerpt), $cut_length))."&nbsp;</a></span></a>";
 	}
@@ -430,7 +431,9 @@ function specs_get_post_views($postID){
  */
 function specs_pages($range = 5){
     global $paged, $wp_query;
-    if ( !$max_page ) {$max_page = $wp_query->max_num_pages;}
+    if ( !$max_page ) {
+        $max_page = $wp_query->max_num_pages;
+    }
     if($max_page > 1){if(!$paged){$paged = 1;}
 	echo "<ul class='pagination pull-right'>";
         if($paged != 1){
@@ -484,7 +487,7 @@ function specs_pages($range = 5){
  *
  */
 function specs_archives_list() {
-    if( !$output = get_option('specs_archives_list') ){
+    if( !$output = wp_cache_get('specs_archives_list') ){
         $output = '';
         $the_query = new WP_Query( 'posts_per_page=-1&ignore_sticky_posts=1&post_status=publish' ); //update: 加上忽略置顶文章
         $year=0; $mon=0; $i=0; $j=0;
@@ -515,12 +518,12 @@ function specs_archives_list() {
             $output .= '<li class="list-group-item">'. get_the_time('d日: ') .'<a href="'. get_permalink() .'" title="'.get_the_title().'">'. get_the_title() .'</a> <span class="badge fa fa-comments"> '. get_comments_number('0', '1', '%') .'</span></li>'; //输出文章日期和标题
         endwhile;
         $output .= '</ul></div></div></div>';
-        update_option('specs_archives_list', $output);
+        wp_cache_set('specs_archives_list', $output);
     }
     echo $output;
 }
 function clear_archives_cache() {
-    update_option('specs_archives_list', ''); // 清空 specs_archives_list
+    wp_cache_delete('specs_archives_list'); // 清空 specs_archives_list
 }
 add_action('save_post', 'clear_archives_cache'); // 新发表文章/修改文章时
 
@@ -630,7 +633,7 @@ function most_comm_posts($days=30, $nums=5) { //$days参数限制时间值，单
  * @reference http://codex.wordpress.org/Function_Reference/get_terms
  */
 function specs_show_tags() {
-	if(!$output = get_option('specs_tags_list')){
+	if(!$output = wp_cache_get('specs_tags_list')){
         include_once('inc/zh_to_py.php');
 		$categories = get_terms( 'post_tag', array(
 			'orderby'    => 'count',
@@ -688,12 +691,12 @@ function specs_show_tags() {
 			}
 		}
 		$output .= "</ul>";
-		update_option('specs_tags_list', $output);
+		wp_cache_set('specs_tags_list', $output);
 	}
     echo $output;
 }
 function clear_tags_cache() {
-    update_option('specs_tags_list', ''); // 清空 specs_archives_list
+    wp_cache_delete('specs_tags_list'); // 清空 specs_archives_list
 }
 add_action('save_post', 'clear_tags_cache'); // 新发表文章/修改文章时
 /**
@@ -730,7 +733,7 @@ function specs_post_count_by_tag ( $arg ,$type = 'include'){
  *
  */
 function specs_comments_tj($nums = 10,$month=0){
-    if(!$result = get_option("mostactive")){
+    if(!$result = wp_cache_get("mostactive")){
         global $wpdb;
         //$time = time();
 
@@ -744,12 +747,12 @@ function specs_comments_tj($nums = 10,$month=0){
         foreach($comments as $v){
             $result[]=array($v->comment_author,(int)$v->total,$v->comment_author_email,$v->comment_author_url);
         }
-        update_option('mostactive', $result);
+        wp_cache_set('mostactive', $result);
     }
     return $result;
 }
 function clear_mostactive() {
-  update_option('mostactive', ''); // 清空 mostactive
+  wp_cache_delete('mostactive'); // 清空 mostactive
 }
 add_action('comment_post', 'clear_mostactive'); // 新评论发生时
 add_action('edit_comment', 'clear_mostactive'); // 评论被编辑过
@@ -1106,7 +1109,7 @@ function specs_comment_approved($comment) {
 }
 //首页幻灯片
 function specs_slide(){
-	if( !$output = get_option('specs_slides') ){
+	if( !$output = wp_cache_get('specs_slides') ){
 		$output = '';
 		$specs_slide_on = of_get_option("show_slide") ? of_get_option("show_slide") : 0;
 		if($specs_slide_on){
@@ -1147,14 +1150,14 @@ function specs_slide(){
 			$output .= '<a class="right carousel-control" href="#slide" role="button" data-slide="next">';
 			$output .= '<span class="glyphicon glyphicon-chevron-right"></span>';
 			$output .= '<span class="sr-only">Next</span></a></div>';
-			update_option('specs_slides', $output);
+			wp_cache_set('specs_slides', $output);
 		}
 	}
 	echo $output;
 }
 
 function clear_slides(){
-	update_option('specs_slides', ''); // 清空 specs_slides
+	wp_cache_delete('specs_slides'); // 清空 specs_slides
 }
 add_action( 'optionsframework_after_validate', 'clear_slides' );
 
