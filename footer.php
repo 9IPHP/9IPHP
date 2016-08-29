@@ -1,58 +1,17 @@
     </section>
 </div>
-<div class="main-footer">
-    <div class="container">
-        <h3>友情链接</h3>
-        <ul class="list-unstyled list-inline">
-            <?php $linkIds = of_get_option('links_id');
-            wp_list_bookmarks('title_li=&categorize=0&show_images=0&category='.$linkIds); ?>
-        </ul>
+<?php if(wp_list_bookmarks()){ ?>
+    <div class="main-footer">
+        <div class="container">
+            <h3>友情链接</h3>
+            <ul class="list-unstyled list-inline">
+                <?php $linkIds = of_get_option('links_id');
+                wp_list_bookmarks('title_li=&categorize=0&show_images=0&category='.$linkIds); ?>
+            </ul>
+        </div>
     </div>
-</div>
+<?php } ?>
 <footer id="body-footer">
-    <?php
-    /* The footer widget area is triggered if any of the areas
-     * have widgets. So let's check that first.
-     *
-     * If none of the sidebars have widgets, then let's bail early.
-     */
-    /*if (   is_active_sidebar( 'first-footer-widget-area'  )
-        && is_active_sidebar( 'second-footer-widget-area' )
-        && is_active_sidebar( 'third-footer-widget-area'  )
-        && is_active_sidebar( 'fourth-footer-widget-area' )
-    ) : ?>
-    <aside class="footer-widget row">
-        <div class="first col-md-3 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
-        <div class="second col-md-3 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
-        <div class="third col-md-3 col-xs-12"><?php dynamic_sidebar( 'third-footer-widget-area' ); ?></div>
-        <div class="fourth col-md-3 col-xs-12"><?php dynamic_sidebar( 'fourth-footer-widget-area' ); ?></div>
-    </aside>
-    <?php elseif ( is_active_sidebar( 'first-footer-widget-area'  )
-        && is_active_sidebar( 'second-footer-widget-area' )
-        && is_active_sidebar( 'third-footer-widget-area'  )
-        && ! is_active_sidebar( 'fourth-footer-widget-area' )
-    ) : ?>
-    <aside class="footer-widget row">
-        <div class="first col-md-4 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
-        <div class="second col-md-4 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
-        <div class="third col-md-4 col-xs-12"><?php dynamic_sidebar( 'third-footer-widget-area' ); ?></div>
-    </aside>
-    <?php elseif ( is_active_sidebar( 'first-footer-widget-area'  )
-        && is_active_sidebar( 'second-footer-widget-area' )
-        && ! is_active_sidebar( 'third-footer-widget-area'  )
-    ) : ?>
-    <aside class="footer-widget row">
-        <div class="first col-md-6 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
-        <div class="second col-md-6 col-xs-12"><?php dynamic_sidebar( 'second-footer-widget-area' ); ?></div>
-    </aside>
-    <?php elseif ( is_active_sidebar( 'first-footer-widget-area'  )
-        && ! is_active_sidebar( 'second-footer-widget-area' )
-    ) :
-    ?>
-    <aside class="footer-widget row">
-        <div class="first col-md-12 col-xs-12"><?php dynamic_sidebar( 'first-footer-widget-area' ); ?></div>
-    </aside>
-    <?php endif; */?>
     <div  class="container clearfix bottomcp">
         Copyright © 2014 <?php bloginfo('name'); ?> |
         <?php if(get_option('zh_cn_l10n_icp_num')){ echo get_option('zh_cn_l10n_icp_num') . ' | '; } ?>
@@ -64,39 +23,6 @@
     </ul>
 </footer>
 <?php wp_footer(); ?>
-<script type="text/javascript">// <![CDATA[
-$.fn.smartFloat = function() {
-    var position = function(element) {
-        var top = element.position().top, pos = element.css("position");
-        $(window).scroll(function() {
-            var scrolls = $(this).scrollTop();
-            if (scrolls > top) {
-                if (window.XMLHttpRequest) {
-                    element.css({
-                        position: "fixed",
-                        top: "65px"
-                    });
-                } else {
-                    element.css({
-                        top: scrolls
-                    });
-                }
-            }else {
-                element.css({
-                    position: pos,
-                    top: top
-                });
-            }
-        });
-    };
-    return $(this).each(function() {
-        position($(this));
-    });
-};
-
-//绑定
-$("#float").smartFloat();
-// ]]></script>
 
 </body>
 </html>

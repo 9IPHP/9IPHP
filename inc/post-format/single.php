@@ -43,6 +43,9 @@
 
 	</div>
 	<footer class="entry-footer">
+		<div class="post-like">
+			<a href="javascript:;" data-action="ding" data-id="<?php the_ID(); ?>" class="specsZan <?php if(isset($_COOKIE['specs_zan_'.$post->ID])) echo 'done';?>" title="<?php if(isset($_COOKIE['specs_zan_'.$post->ID])) echo '您已赞过该文章';?>"><i class="fa fa-thumbs-up fa-fw"></i> 赞 (<span class="count"><?php if( get_post_meta($post->ID,'specs_zan',true) ){ echo get_post_meta($post->ID,'specs_zan',true); } else{ echo '0'; }?></span>)</a>
+		</div>
 		<div class="footer-tag clearfix">
 			<div class="pull-left">
 				<?php if ( get_the_tags() ) { the_tags('', ' ', ''); } else{ echo '<p class="label label-specs">本文暂无标签</p>';  } ?>
@@ -101,7 +104,6 @@
 				        "bdStyle":"0",
 				        "bdText":"一篇好文,推荐之-【<?php htmlspecialchars_decode(the_title(), ENT_QUOTES);?>】（来自:<?php echo htmlspecialchars_decode(get_bloginfo('name'), ENT_QUOTES); ?>）",
 				        "bdPic" : "<?php echo _9iphp_post_image();?>",
-				        "bdDesc": "<?php echo strip_tags(get_the_excerpt());?>",
 				        "bdUrl": "<?php the_permalink() ?>"
 				    },
 				    "share" : [{

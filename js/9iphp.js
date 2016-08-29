@@ -4,10 +4,34 @@
  * Url: http://9iphp.com/
  */
 $(function(){
+	$.fn.postLike = function() {
+		if ($(this).hasClass('done')) {
+			return false;
+		} else {
+			var id = $(this).data("id"),
+				action = $(this).data('action'),
+				rateHolder = $(this).children('.count'),
+				that = this;
+			var ajax_data = {
+				action: "specs_zan",
+				um_id: id,
+				um_action: action
+			};
+			$.post("/wp-admin/admin-ajax.php", ajax_data,
+				function(response) {
+					if (response.status == 200) {
+						$(that).addClass('done');
+						$(that).attr('data-original-title', '您已赞过该文章');
+						$(rateHolder).html(response.data);
+					}
+				},'json');
+			return false;
+		}
+	};
 	if (jQuery(window).width() > 768) {
 		$("a").tooltip();
 		dropDown();
-	};
+	}
 	//导航二级菜单
 	function dropDown() {
 		var dropDownLi = jQuery('li.dropdown');
@@ -47,12 +71,9 @@ $(function(){
 
 	//侧边栏分类目录
 	$("#widget-cats li").addClass("list-group-item");
-	 //文章页图片特效
-    //$('.fancybox').fancybox();
+
 	$("select").addClass("form-control");
-	//$("#commentform").addClass('form-horizontal');
 	$("#commentform #submit").addClass('btn btn-danger btn-block');
-	//$("#commentform .form-submit").addClass("col-xs-12");
 	if ($("#main").height() > $("#sidebar").height()) {
 		$('#sidebar').affix({
 			offset: {
@@ -61,6 +82,10 @@ $(function(){
 			}
 		});
 	}
+});
+$(document).on("click", ".specsZan", function() {
+	$('body').addClass('is-loading');
+	$(this).postLike();
 });
 //返回顶部
 $(window).scroll(function() {

@@ -1078,3 +1078,20 @@ footer#body-footer a:hover {
 .main-footer h3{
     margin: 10px 0;
 }
+.post-like {
+    text-align: center;
+    padding: 10px
+}
+.post-like a.done {
+    cursor: not-allowed
+}
+.post-like a {
+    background: #ff4d3a;
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 140px;
+    font-size: 16px;
+    padding: 10px 0;
+    color: #fff;
+    margin: 0 1px;
+}
