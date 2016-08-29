@@ -621,8 +621,10 @@ img.avatar {
 /*底部*/
 
 footer#body-footer {
-    padding: 10px 20px;
-    background: #393939;
+    padding: 45px 20px;
+    text-align: center;
+    background: #111;
+    color: #fff;
     position: relative;
     bottom: 0;
 }
@@ -630,7 +632,7 @@ footer#body-footer {
     text-align: center;
     color: #fff;
 }
-footer#body-footer a, #today {
+footer#body-footer a, #today, .main-footer a {
     color: #ff4d3a;
 }
 footer#body-footer a:hover {
@@ -1067,4 +1069,12 @@ footer#body-footer a:hover {
     .affix,.affix-bottom {
         width: 360px;
     }
+}
+.main-footer {
+    background: #202020;
+    padding: 15px 0;
+    color: #CCC;
+}
+.main-footer h3{
+    margin: 10px 0;
 }

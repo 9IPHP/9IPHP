@@ -160,6 +160,12 @@ function optionsframework_options() {
 		'id' => 'disable_google_font',
 		'std' => '0',
 		'type' => 'checkbox');
+    $options[] = array(
+        'name' => '页面底部友情链接ID',
+        'desc' => '友情链接需要显示的分类ID，用英文逗号分割，为空则显示全部',
+        'id' => 'links_id',
+        'std' => '',
+        'type' => 'text');
 	$options[] = array(
 		'name' => '文章 && 页面',
 		'type' => 'heading');
