@@ -1,12 +1,11 @@
     </section>
 </div>
-<?php if(wp_list_bookmarks()){ ?>
+<?php $linkIds = of_get_option('links_id'); if(!!wp_list_bookmarks('echo=0&category='.$linkIds)){ ?>
     <div class="main-footer">
         <div class="container">
             <h3>友情链接</h3>
             <ul class="list-unstyled list-inline">
-                <?php $linkIds = of_get_option('links_id');
-                wp_list_bookmarks('title_li=&categorize=0&show_images=0&category='.$linkIds); ?>
+                <?php wp_list_bookmarks('title_li=&categorize=0&show_images=0&category_before=&category_after=&category='.$linkIds); ?>
             </ul>
         </div>
     </div>
