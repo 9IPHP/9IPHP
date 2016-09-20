@@ -1,7 +1,7 @@
     </section>
 </div>
 <?php $linkIds = of_get_option('links_id'); if(!!wp_list_bookmarks('echo=0&category='.$linkIds)){ ?>
-    <div class="main-footer">
+    <div class="main-footer" id="main-footer">
         <div class="container">
             <h3>友情链接</h3>
             <ul class="list-unstyled list-inline">

@@ -75,10 +75,14 @@ $(function(){
 	$("select").addClass("form-control");
 	$("#commentform #submit").addClass('btn btn-danger btn-block');
 	if ($("#main").height() > $("#sidebar").height()) {
+		var footerHeight = 0;
+		if ($('#main-footer').length > 0) {
+			footerHeight = $('#main-footer').outerHeight(true);
+		}
 		$('#sidebar').affix({
 			offset: {
 				top: $('#sidebar').offset().top - 50,
-				bottom: $('footer#body-footer').outerHeight(true) + 25
+				bottom: $('footer#body-footer').outerHeight(true) + footerHeight + 25
 			}
 		});
 	}
