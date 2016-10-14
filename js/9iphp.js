@@ -81,8 +81,8 @@ $(function(){
 		}
 		$('#sidebar').affix({
 			offset: {
-				top: $('#sidebar').offset().top - 50,
-				bottom: $('footer#body-footer').outerHeight(true) + footerHeight + 25
+				top: $('#sidebar').offset().top - 65,
+				bottom: $('footer#body-footer').outerHeight(true) + footerHeight
 			}
 		});
 	}

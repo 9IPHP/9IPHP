@@ -62,7 +62,7 @@ switch (of_get_option('background_mode')) {
 	break;
 }
 ?>
-<header>
+<header class="metabar">
     <div id="masthead" role="banner" class="hidden-xs">
 		<div class="top-banner">
 			<div class="container">
@@ -134,5 +134,5 @@ switch (of_get_option('background_mode')) {
         </div><!-- /.container-fluid -->
     </nav>
 </header>
-<div class="container">
+<div class="container main-contents">
    <section class="row">

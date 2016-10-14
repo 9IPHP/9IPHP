@@ -1095,3 +1095,14 @@ footer#body-footer a:hover {
     color: #fff;
     margin: 0 1px;
 }
+.main-contents {
+    padding-top: 143px;
+}
+.metabar {
+    position: absolute;
+    display: block;
+    z-index: 500;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0
+}
