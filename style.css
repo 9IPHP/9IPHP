@@ -1098,6 +1098,11 @@ footer#body-footer a:hover {
 .main-contents {
     padding-top: 143px;
 }
+@media screen and (max-width: 767px) {
+    .main-contents {
+        padding-top: 73px;
+    }
+}
 .metabar {
     position: absolute;
     display: block;
