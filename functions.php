@@ -32,7 +32,8 @@ add_action( 'after_setup_theme', 'specs_register_nav_menu' );
 class Bootstrap_Walker extends Walker_Nav_Menu
 {
     function start_lvl( &$output, $depth = 0, $args = array() )
-    {    $tabs = str_repeat("\t", $depth);
+    {
+        $tabs = str_repeat("\t", $depth);
         // If we are about to start the first submenu, we need to give it a dropdown-menu class
         if ($depth == 0 || $depth == 1) { //really, level-1 or level-2, because $depth is misleading here (see note above)
             $output .= "\n{$tabs}<ul class=\"dropdown-menu\">\n";
