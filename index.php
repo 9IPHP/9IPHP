@@ -94,7 +94,7 @@ get_header(); ?>
 						$ads_show_pos = of_get_option('ads_show_pos', false);
 						$ads = of_get_option('ads_index_list', false);
 						$ads_pos = of_get_option('ads_index_list_pos',1);
-						if($ads_show_pos['index'] && $ads){
+						if(isset($ads_show_pos['index']) && $ads_show_pos['index'] && $ads){
 							if ($wp_query->current_post == $ads_pos ){
 								echo '<div class="ads_index_list">' . $ads . '</div>';
 							}

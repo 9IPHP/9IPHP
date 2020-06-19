@@ -54,7 +54,7 @@
 		<?php
 			$ads_show_pos = of_get_option('ads_show_pos', false);
 			$ads = of_get_option('ads_index_list', false);
-			if($ads_show_pos['single'] && $ads){
+			if(isset($ads_show_pos['single']) && $ads_show_pos['single'] && $ads){
 				echo '<div class="ads_page_footer">' . $ads . '</div>';
 			}
 		?>
@@ -84,7 +84,7 @@
 		<!--分享-->
 		<?php
 			$share_btn_pos = of_get_option('share_btn_pos', false);
-			if ($share_btn_pos['single']) {
+			if (isset($share_btn_pos['single']) && $share_btn_pos['single']) {
 		?>
 			<div id="share_box" class="bdsharebuttonbox" data-tag="share_2">
 				<a href="#" class="bds bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
