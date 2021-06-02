@@ -12,7 +12,7 @@
 <?php } ?>
 <footer id="body-footer">
     <div  class="container clearfix bottomcp">
-        Copyright © 2014 <?php bloginfo('name'); ?> |
+        Copyright © <?php echo date('Y'); ?> <?php bloginfo('name'); ?> |
         <?php if(get_option('zh_cn_l10n_icp_num')){ echo get_option('zh_cn_l10n_icp_num') . ' | '; } ?>
         <?php $site_analytics = of_get_option('site_analytics', false); if($site_analytics){ echo (strpos($site_analytics, '<script') === false) ? '<script>'.$site_analytics.'</script> | ' : $site_analytics . ' | '; } ?>
         Theme By <a href="http://9iphp.com" title="Specs' Bolg" target="_blank">Specs</a>
